@@ -13,6 +13,7 @@ const htmlclean = require("gulp-htmlclean");
 const uglify = require("gulp-uglify");
 const minify = require('gulp-minify');
 const terser = require('gulp-terser');
+const babel = require('gulp-babel');
 
 /** postCSS * */
 const postcss = require("gulp-postcss");
@@ -95,10 +96,14 @@ gulp.task("make:html", () => {
 });
 gulp.task("make:js", () => {
   return gulp.src(`${src.js}**/*.js`)
-    .pipi(plumber())
+    .pipe(plumber())
     .pipe(changed(`${src.js}**/*.js`))
     .pipe(sourcemaps.init())
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
     .pipe(concat("main.min.js"))
+    .pipe(uglify())
     .pipe(terser())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(dest.js))
