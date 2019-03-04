@@ -2,7 +2,10 @@
  * requirements
  */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> eslint
 /** Basic * */
 const gulp = require("gulp");
 const browserSync = require("browser-sync");
@@ -10,6 +13,7 @@ const browserSync = require("browser-sync");
 /** HTML * */
 const htmlclean = require("gulp-htmlclean");
 
+<<<<<<< HEAD
 /** postCss * */
 const postcss = require("gulp-postcss");
 const sass = require("gulp-sass");
@@ -17,14 +21,36 @@ const autoprefixer = require("autoprefixer");
 
 /** SVGs * */
 const svgSprite = require("gulp-svg-sprite");
+=======
+/** JS * */
+const uglify = require("gulp-uglify");
+const minify = require('gulp-minify');
+const terser = require('gulp-terser');
+const babel = require('gulp-babel');
+
+/** postCSS * */
+const postcss = require("gulp-postcss");
+const sass = require("gulp-sass");
+const autoprefixer = require("autoprefixer");
+const cssnano = require("gulp-cssnano");
+
+/** SVGs * */
+const svgSprite = require("gulp-svg-sprite");
+const svg2Png = require('gulp-svg2png');
+>>>>>>> eslint
 
 /** utilities * */
 const sourcemaps = require("gulp-sourcemaps");
 const changed = require("gulp-changed");
 const plumber = require("gulp-plumber");
 const concat = require("gulp-concat");
+<<<<<<< HEAD
 const cssnano = require("gulp-cssnano");
 const uglify = require("gulp-uglify");
+=======
+
+
+>>>>>>> eslint
 
 
 /*
@@ -35,6 +61,7 @@ const basePath = {
   src: "src/",
   dest: "public/"
 };
+<<<<<<< HEAD
 
 const src = {
   icons:`${basePath.src}icons/`,
@@ -50,6 +77,22 @@ const dest = {
   css: `${basePath.dest}css/`
 };
 
+=======
+const src = {
+  icons:`${basePath.src}icons/`,
+  img: `${basePath.src}img/`,
+  html: `${basePath.src}html/`,
+  js: `${basePath.src}js/`,
+  css: `${basePath.src}postcss/`
+};
+const dest = {
+  icons:`${basePath.dest}icons/`,
+  img: `${basePath.dest}img/`,
+  html: `${basePath.src}html/`,
+  js: `${basePath.dest}js/`,
+  css: `${basePath.dest}css/`
+};
+>>>>>>> eslint
 const svgConfig = {
   mode: {
     css: {
@@ -60,13 +103,21 @@ const svgConfig = {
     }
   }
 };
+<<<<<<< HEAD
+=======
+const reload = browserSync.reload;
+
+>>>>>>> eslint
 
 
 /*
  * sub tasks
  */
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> eslint
 gulp.task("browser-sync", () => {
   browserSync.init({
     port: 3071,
@@ -74,6 +125,7 @@ gulp.task("browser-sync", () => {
       baseDir: basePath.dest
     }
   });
+<<<<<<< HEAD
 });
 gulp.task("make:html", () => {
   return gulp.src(`${basePath.src}**/*.html`)
@@ -93,10 +145,44 @@ gulp.task("make:js", () => {
 gulp.task("make:css", () => {
   let plugins = [autoprefixer({ browsers: ["last 2 versions"] })];
   return gulp.src(`${src.css}**/*.scss`)
+=======
+
+  gulp.watch(`${basePath.src}**/*`, gulp.series('make:html'));
+  gulp.watch(`${src.js}**/*.js`, gulp.series('make:js')).on("change", reload);
+  gulp.watch(`${src.css}**/*.scss`, gulp.series('make:css'));
+});
+gulp.task("make:html", () => {
+  return gulp.src(`${basePath.src}**/*.html`)
+    .pipi(plumber())
+    .pipe(changed(`${basePath.src}**/*.html`))
+    .pipe(htmlclean())
+    .pipe(gulp.dest(basePath.dest))
+    .pipe(browserSync.stream());
+});
+gulp.task("make:js", () => {
+  return gulp.src(`${src.js}**/*.js`)
+    .pipe(plumber())
+    .pipe(changed(`${src.js}**/*.js`))
+    .pipe(sourcemaps.init())
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    .pipe(concat("main.min.js"))
+    .pipe(uglify())
+    .pipe(terser())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(dest.js))
+});
+gulp.task("make:css", () => {
+  let plugins = [autoprefixer({ browsers: ["last 2 versions"] })];
+  return gulp.src(`${src.css}**/*.scss`)
+    .pipi(plumber())
+>>>>>>> eslint
     .pipe(changed(`${src.css}**/*.scss`))
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
     .pipe(postcss(plugins))
+<<<<<<< HEAD
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(dest.css));
 });
@@ -106,10 +192,34 @@ gulp.task("make:svg-sprite", () => {
     .pipe(svgSprite(svgConfig))
     .pipe(gulp.dest(dest.icons));
 });
+=======
+    .pipe(cssnano())
+    .pipe(sourcemaps.write())
+    .pipe(gulp.dest(dest.css))
+    .pipe(browserSync.stream())
+});
+gulp.task("make:svg-sprite", () => {
+    return gulp.src(`${src.icons}**/*.svg`)
+    .pipi(plumber())
+    .pipe(svgSprite(svgConfig))
+    .pipe(gulp.dest(dest.icons));
+});
+gulp.task('svg2png', () => {
+    return gulp.src('./specs/assets/**/*.svg')
+    .pipi(plumber())
+    .pipe(svg2png())
+    .pipe(gulp.dest('./build'));
+})
+
+>>>>>>> eslint
 
 
 /*
  * main tasks
  */
 
+<<<<<<< HEAD
 gulp.task("default", ["browser-sync", "make:html", "make:js", "make:css"]);
+=======
+gulp.task('default', gulp.series('browser-sync', 'make:html', 'make:css', 'make:js', 'make:svg-sprite'))
+>>>>>>> eslint
