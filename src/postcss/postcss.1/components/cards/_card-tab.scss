@@ -1,0 +1,16 @@
+.card-tab {
+  margin-bottom: 40px;
+}
+
+.card-tab__card {
+  background-color: $gray-0;
+  padding: 16px 24px;
+  display: none;
+  opacity: 0;
+  transition: all 0.5s;
+
+  &.is-active {
+    display: block;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,63 @@
+.fixed-bubbles {
+  @extend %position-fixed;
+  bottom: 100px;
+  right: 25px;
+	z-index: 15;
+	@include media('below-desktop') {
+		bottom: auto;
+		top: 65px;
+		right: 10px;
+	}
+}
+
+.fixed-bubble {
+  @extend %position-relative;
+  @extend %flex-center;
+  @extend %last-no-margin;
+  @include bg-hover($main-color);
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  cursor: pointer;
+  margin-bottom: 10px;
+  background-color: $main-color;
+  box-shadow: 2px 2px 10px rgba($gray-3, 0.8);
+	@include media('below-desktop') {
+		display: none!important;
+	}
+  &.fixed-bubble--white {
+    background-color: $white;
+    box-shadow: 2px 2px 10px rgba($gray-1, 0.8);
+  }
+
+  &.is-active {
+    background-color: color($main-color shade(16%));
+  }
+}
+
+.fixed-bubble__icon {
+  @extend %block;
+  color: $white;
+  font-size: 30px;
+	transform: translateY(-1px);
+	@include media('below-tablet') {
+		font-size: 20px;
+	}
+}
+
+.fixed-bubble__circle {
+  @extend %position-absolute;
+  @extend %flex-center;
+  height: 24px;
+  width: 24px;
+  border-radius: 50%;
+  background-color: $red;
+  bottom: -2px;
+  right: -10px;
+  box-shadow: 2px 2px 10px rgba($gray-2, 0.8);
+}
+
+.fixed-bubble__num {
+  color: $white;
+  font-size: 14px;
+}

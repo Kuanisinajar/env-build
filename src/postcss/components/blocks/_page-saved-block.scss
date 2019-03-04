@@ -1,0 +1,15 @@
+.page-saved-block {
+	@extend %position-absolute;
+	color: $white;
+	background-color: $gray-5;
+	font-size: 1.5em;
+	padding: 20px 72px;
+	top: -80px;
+	display: none;
+	z-index: 20;
+	@include media('below-tablet') {
+		position: fixed;
+		top: 80px;
+		left: calc(50% - 135px);
+	}
+}

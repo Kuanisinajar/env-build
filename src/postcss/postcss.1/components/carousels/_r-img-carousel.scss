@@ -1,0 +1,63 @@
+.r-img-carousel {
+	@extend %position-relative;
+	@include c-c-arrow(r-img-carousel);
+	.flex-wrap {
+		@extend %lost-clear;
+	}
+	.border-btn {
+		@extend %position-absolute;
+		bottom: 77px;
+		left: 32px;
+	}
+}
+
+.r-img-carousel__container {
+	@extend %position-relative;
+	lost-column: 5/12 2 0;
+	background-color: $white;
+	padding: 32px;
+	align-self: stretch;
+}
+
+.r-img-carousel__img-wrap {
+	lost-column: 7/12 2 0;
+	align-self: stretch;
+}
+
+.r-img-carousel__img {
+	@extend %full-width;
+	@extend %full-height;
+	@extend %background-cover;
+	padding-top: 69%;
+}
+
+.r-img-carousel__subheading {
+	@extend %uppercase;
+	@include font($base-font, $weight-b, 1em, 1px);
+	color: $main-color;
+	margin-bottom: 24px;
+}
+
+.r-img-carousel__wrap {
+	@extend %last-no-margin;
+	margin-bottom: 32px;
+}
+
+.r-img-carousel__heading {
+	@extend %last-no-margin;
+	@include font($base-font, $weight-m, 1.5em);
+	margin-bottom: 16px;
+}
+
+.r-img-carousel__controls {
+	@extend %position-absolute;
+	@extend %flex-between;
+	bottom: 32px;
+	left: 0;
+	lost-column: 5/12 2 0;
+	padding: 0 32px;
+}
+
+.r-img-carousel__dots {
+	@extend %c-dots;
+}

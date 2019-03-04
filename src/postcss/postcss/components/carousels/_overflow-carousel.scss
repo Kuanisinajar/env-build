@@ -1,0 +1,64 @@
+.overflow-carousel {
+	@include c-c-arrow(overflow-carousel);
+	.slick-list {
+		overflow: visible;
+		margin: 0 -12px;
+	}
+}
+
+.overflow-carousel__slide {
+	@extend %position-relative;
+	margin: 0 12px;
+}
+
+.overflow-carousel__trigger {
+	@extend %full-width;
+	@extend %block;
+	@include media('above-desktop') {
+		&:hover {
+			.video-btn {
+				color: $white;
+			}
+		}
+	}
+}
+
+.overflow-carousel__img {
+	@extend %background-cover;
+	@extend %full-width;
+	padding-top: 63%;
+}
+
+.overflow-carousel__container {
+	@extend %position-absolute;
+	@extend %full-width;
+	left: 0;
+	bottom: 0;
+	padding: 24px;
+	color: $white;
+	.video-btn {
+		margin-bottom: 16px;
+	}
+}
+
+.overflow-carousel__subheading {
+	@extend %uppercase;
+	@include font($base-font, $weight-b, 1em, 1px);
+	margin-bottom: 8px;
+}
+
+.overflow-carousel__heading {
+	font-size: 1.625em;
+	margin-bottom: 8px;
+}
+
+.overflow-carousel__controls {
+	@extend %flex-between;
+	@extend %full-width;
+	margin-top: 24px;
+}
+
+.overflow-carousel__dots {
+	@extend %c-dots;
+}
+

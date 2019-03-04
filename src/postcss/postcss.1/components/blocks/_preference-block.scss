@@ -1,0 +1,66 @@
+.preference-block {
+	padding: 24px;
+	background-color: $gray-0;
+	margin-bottom: 16px;
+	@include media('below-tablet') {
+		padding: 16px;
+	}
+}
+
+.preference-block__heading {
+	@extend %font-b-18;
+	color: $main-color;
+	margin-bottom: 24px;
+}
+
+.preference-block__paragraph {
+	@extend %font-m-14;
+}
+
+.preference-block__hr {
+	border: none;
+	border-top: 1px solid $gray-2;
+	padding-bottom: 16px;
+	margin-top: 16px;
+}
+
+.preference-block__check {
+	@extend %flex-between;
+	margin-bottom: 24px;
+	.basic-form__checkbox-list {
+		@extend %font-b-18;
+		color: $main-color;
+		margin-left: 0;
+	}
+	.basic-form__checkbox {
+		left: 0;
+	}
+	& + .preference-block__paragraph {
+		padding-right: 40px;
+	}
+}
+
+.preference-block__column {
+	display: flex;
+	flex-flow: wrap;
+	margin-bottom: 24px;
+	.preference-block {
+		@include media('above-tablet') {
+			width: calc(50% - 8px);
+		margin-right: 16px;
+		&:nth-child(2n) {
+			margin-right: 0;
+		}
+		}
+		@include media('below-tablet') {
+			width: 100%;
+		}
+	}
+}
+
+.preference-block-note {
+	@extend %font-m-18;
+	color: $red;
+	margin-bottom: 16px;
+	display: none;
+}

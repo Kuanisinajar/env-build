@@ -1,0 +1,28 @@
+.header-card-wrap {
+    @extend %flex-between;
+}
+
+.header-card {
+    border: 1px solid rgba($main-color, 0.3);
+    background-color: rgba($gray-1, 0.3);
+    padding: 24px;
+    align-self: stretch;
+    width: calc(50% - 12px);
+}
+
+.header-card__icon {
+    width: 30px;
+		height: 30px;
+    margin-bottom: 8px;
+}
+
+.header-card__heading {
+    @extend %font-m-20;
+    color: $gray-6;
+    margin-bottom: 16px;
+}
+
+.header-card__paragraph {
+    @extend %font-m-14;
+    margin-bottom: 16px;
+}

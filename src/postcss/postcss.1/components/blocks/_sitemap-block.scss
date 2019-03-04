@@ -1,0 +1,29 @@
+.sitemap-block {
+	@extend %last-no-margin;
+	margin-bottom: 48px;
+	li {
+		@extend %last-no-margin;
+		margin-bottom: 16px;
+	}
+}
+
+.sitemap-block__wrap {
+	@extend %last-no-margin;
+	margin-bottom: 32px;
+}
+
+.sitemap-block__heading {
+	@extend %font-m-22;
+	border-bottom: 1px solid $gray-1;
+	margin-bottom: 24px;
+	padding-bottom: 8px;
+	a {
+		@include text-hover($gray-6);
+	}
+}
+
+.sitemap-block__subheading {
+	margin-bottom: 16px;
+	font-weight: $weight-b;
+	color: $gray-6;
+}

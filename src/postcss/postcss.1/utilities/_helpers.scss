@@ -1,0 +1,198 @@
+/*Clearfix*/
+.clear,
+%clear {
+	&:before, &:after{
+		content: " ";
+		display: table;
+	}
+	&:after{
+		clear: both;
+	}
+}
+
+%lost-clear {
+	lost-utility: clearfix;
+}
+
+/*Background Size Cover*/
+.background-cover,
+%background-cover {
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+/*Position*/
+.position-relative,
+%position-relative {
+	position: relative;
+}
+.position-absolute,
+%position-absolute {
+	position: absolute;
+}
+.position-fixed,
+%position-fixed {
+	position: fixed;
+}
+
+/*Display*/
+.block,
+%block {
+	display: block;
+}
+.inlineblock,
+%inlineblock {
+	display: inline-block;
+}
+
+.align--center,
+%align--center {
+	@extend %block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Full-width elements*/
+%full-width,
+.full-width {
+	width: 100%;
+}
+
+/*Full-height elements*/
+%full-height,
+.full-height {
+	height: 100%;
+}
+
+%full-view-height,
+.full-view-height {
+	height: 100vh;
+}
+
+/*Text alignment*/
+%text--left,
+.text--left {
+	text-align: left;
+}
+
+%text--right,
+.text--right {
+	text-align: right;
+}
+
+%text--center,
+.text--center {
+	text-align: center;
+}
+
+%text--justify,
+.text--justify {
+	text-align: justify;
+}
+
+%inline--top,
+.inline--top {
+	display: inline-block;
+	vertical-align: top;
+}
+
+%inline--middle,
+.inline--middle {
+	display: inline-block;
+	vertical-align: middle;
+}
+
+%inline--bottom,
+.inline--bottom {
+	display: inline-block;
+	vertical-align: bottom;
+}
+
+/*Text style*/
+%text--b,
+.text--b {
+	font-weight: 700;
+}
+
+%text--green,
+.text--green {
+	color: #008787;
+}
+
+
+
+/*Align center by table*/
+.table {
+	@extend %full-width;
+	@extend %full-height;
+	display: table;
+}
+
+.table-cell {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/*Flex*/
+%flex,
+.flex {
+	display: flex;
+	display: -ms-flexbox;
+	-ms-flex-direction: row;
+}
+
+%flex-center,
+.flex-center {
+	display: flex;
+	display: -ms-flexbox;
+	-ms-flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+%flex-between,
+.flex-between {
+	display: flex;
+	display: -ms-flexbox;
+	-ms-flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+%flex-wrap,
+.flex-wrap {
+	display: flex;
+	display: -ms-flexbox;
+	-ms-flex-direction: row;
+	flex-wrap: wrap;
+}
+
+%opacity-hidden,
+.opacity-hidden {
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s;
+	&.is-active {
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+%uppercase {
+	text-transform: uppercase;
+}
+
+.hide {
+	display: none!important;
+}
+
+%last-no-margin {
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.margin-auto {
+	margin: auto;
+}

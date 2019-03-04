@@ -1,0 +1,43 @@
+.basic-text-card {
+  @extend %text--center;
+  background-color: rgba($white, 0.8);
+	padding: 56px 32px;
+	@include media('below-tablet') {
+		padding: 16px;
+	};
+}
+
+.basic-text-card__item {
+  margin-bottom: 24px;
+}
+
+.basic-text-card__heading {
+	@extend %font-m-22;
+	line-height: 1.4em;
+}
+
+.basic-text-card__icon-block {
+  @extend %flex-center;
+}
+
+.basic-text-card__icon-block-img {
+  height: 32px;
+  width: 32px;
+}
+
+.basic-text-card__icon-block-heading {
+  @extend %font-b-30;
+}
+
+.basic-text-card__info {
+  color: $gray-5;
+  font-weight: $weight-b;
+  letter-spacing: 1px;
+  line-height: 20px;
+}
+
+.basic-text-card__link {
+  padding: 16px;
+  margin-bottom: -16px;
+}
+

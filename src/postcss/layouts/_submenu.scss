@@ -1,0 +1,146 @@
+.submenu {
+	@extend %position-absolute;
+	@extend %text--left;
+	width: 100vw;
+	left: calc(50% - 50vw);
+	opacity: 0;
+	pointer-events: none;
+	transform: translateY(-8px);
+	transition: transform 0.3s, opacity 0.3s;
+	z-index: -1;
+	&.is-active {
+		opacity: 1;
+		transform: translateY(0);
+		.submenu__container {
+			pointer-events: auto;
+		}
+	}
+}
+
+.submenu__main {
+	@extend %position-relative;
+	@extend %lost-clear;
+	padding: 48px 56px;
+}
+
+.submenu__main--solutions {
+	.submenu__block {
+		lost-column: 7/13 2 48px;
+	}
+	.submenu__item {
+		lost-column: 1/2 2;
+	}
+	.submenu__block.block--2 {
+		lost-column: 6/13 2 48px;
+	}
+	.header-card {
+		@extend %full-width;
+	}
+	.header-card__icon,
+	.header-card__heading {
+		@extend %inline--middle;
+		margin-bottom: 0;
+	}
+	.header-card__icon {
+		margin-right: 8px;
+	}
+	.header-card__heading {
+		@extend %font-m-18;
+		width: calc(100% - 42px);
+	}
+	.header-card__paragraph {
+		margin-top: 24px;
+	}
+}
+
+.submenu__arrow-btn {
+	@extend %position-absolute;
+	bottom: 48px;
+	right: 56px;
+}
+
+.submenu__container {
+	@extend %w-shadow-block;
+	background-color: $white-light;
+	width: calc(100% - 223px);
+	float: right;
+}
+
+.submenu__headeing {
+	@extend %font-m-32;
+	color: $main-color;
+	margin-bottom: 24px;
+}
+
+.submenu__description {
+	@extend %last-no-margin;
+	line-height: 1.5em;
+	margin-bottom: 24px;
+}
+
+.submenu__block {
+	@extend %lost-clear;
+	@extend %position-relative;
+	lost-column: 1/3 3 40px;
+	&.block--2 {
+		lost-column: 2/3 3 40px;
+	}
+}
+
+.submenu__subheading {
+	@extend %font-b-18;
+	color: $main-color;
+	padding-bottom: 16px;
+}
+
+.submenu__list {
+	border-top: 1px solid $gray-0;
+	padding-top: 8px;
+}
+
+.submenu__item {
+	@extend %last-no-margin;
+	margin-bottom: 12px;
+}
+
+.submenu__icon-item {
+	@extend %inline--middle;
+	margin-right: 56px;
+	&:last-child {
+		margin-right: 0;
+	}
+	.submenu__link {
+		display: flex;
+		align-items: center;
+		min-width: 200px;
+	}
+}
+
+.submenu__icon {
+	@extend %full-width;
+	@extend %inline--middle;
+	max-width: 36px;
+	margin-right: 8px;
+}
+
+.submenu__text {
+	@extend %inline--middle;
+}
+
+.submenu__link {
+	@include text-hover($default-color);
+	padding: 4px 0;
+	border-bottom: 1px solid transparent;
+	line-height: 1.2em;
+}
+
+.submenu__bottom {
+	padding: 16px 56px;
+	border-top: 1px solid $gray-0;
+}
+
+.submenu__note {
+	@extend %inline--middle;
+	color: #58666E;
+	margin-right: 8px;
+}

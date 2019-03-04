@@ -1,0 +1,83 @@
+.attachments-block__label {
+	@extend %block;
+	@extend %font-m-14;
+	margin-bottom: 8px;
+}
+
+.attachments-block__container {
+	margin-bottom: 16px;
+
+	@include media('below-mobile') {
+		display: flex;
+		flex-direction: column;
+	}
+}
+
+.attachments-block__input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+
+	&:focus + .attachments-block__btn {
+		border: 2px solid $gray-3;
+	}
+}
+
+.attachments-block__btn {
+	margin-right: 16px;
+	cursor: pointer;
+	@include media('above-desktop') {
+		&.fill-btn.fill-btn--light:hover {
+			border: 2px solid $gray-3;
+		}
+	}
+	@include media('below-mobile') {
+		margin: 0 0 8px 0;
+	}
+	.fill-btn {
+		@extend %text--left;
+	}
+}
+
+.attachments-block__note {
+	@extend %font-m-14;
+  color: $gray-4;
+}
+
+.attachments-block__bars {
+	@extend %inline--middle;
+	@include media('above-tablet') {
+		width: calc(100% - 150px);
+	}
+}
+
+.attachments-block__bar {
+	@extend %last-no-margin;
+	@extend %flex-between;
+	@extend %full-width;
+	cursor: pointer;
+	transition: all 0.3s;
+	border-radius: 4px;
+	max-width: 500px;
+	padding: 16px;
+	color: $white;
+	background-color: $gray-3;
+	margin-bottom: 8px;
+
+	@include media('above-desktop') {
+		&:hover {
+			background-color: rgba($gray-4, 0.8);
+		}
+	}
+
+	@include media('below-mobile') {
+		width: 100%;
+	}
+
+	.fill-btn__icon {
+		font-size: 12px;
+	}
+}

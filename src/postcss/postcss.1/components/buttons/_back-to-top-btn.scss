@@ -1,0 +1,22 @@
+.back-to-top-btn {
+	@extend %position-fixed;
+	@extend %flex-center;
+	@include text-hover($main-color);
+	bottom: 35px;
+	right: 25px;
+	z-index: 25;
+	width: 56px;
+  height: 56px;
+	background-color: white;
+	border-radius: 50%;
+	box-shadow: 2px 2px 10px rgba($gray-3, 0.8);
+	@include media('below-tablet') {
+		bottom: 24px;
+		width: 40px;
+  	height: 40px;
+	}
+}
+
+.back-to-top-btn__icon {
+	font-size: 20px;
+}

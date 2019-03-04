@@ -1,0 +1,31 @@
+.modal-img-block {
+	@extend %position-relative;
+	@extend %full-width;
+	@extend %block;
+	@include media('above-desktop') {
+		&:hover {
+			.modal-img-block__icon-wrap {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.modal-img-block__icon-wrap {
+	@extend %position-absolute;
+	top: 0;
+	right: 0;
+	padding: 8px;
+	background-color: $main-color;
+	opacity: 0;
+	transition: opacity 0.3s;
+	@include media('below-desktop') {
+		opacity: 1;
+		padding: 4px;
+	}
+}
+
+.modal-img-block__icon {
+	@extend %block;
+	color: $white;
+}

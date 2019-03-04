@@ -1,0 +1,89 @@
+.edit-tags-block {
+	background-color: $gray-0;
+	padding: 0 8px;
+	height: 0;
+	opacity: 0;
+	.border-btn.border-btn--main,
+	.fill-btn.fill-btn--main {
+		border-width: 1px;
+	}
+	.text-core {
+
+	}
+	.text-wrap {
+		@extend %position-relative;
+		@extend %full-width;
+	}
+	.text-remove {
+		@extend %inline--middle;
+		font-size: 12px;
+	}
+	.text-button {
+		@extend %position-relative;
+	}
+	.text-label {
+		@extend %inline--middle;
+		margin-right: 4px;
+	}
+	.text-tag {
+		margin: 4px 8px 4px 0;
+	}
+}
+
+.edit-tags-block__tags {
+	@extend %full-width;
+	resize: none;
+	border: 1px solid $gray-3;
+	background-color: $white;
+
+	margin-bottom: 8px;
+	min-height: 85px;
+	&.selectize-dropdown {
+		border: 1px solid $gray-4;
+		z-index: 20;
+		max-height: 100px;
+    overflow: auto;
+	}
+	.selectize-input {
+		padding: 8px;
+	}
+	.item {
+		@extend %position-relative;
+		@extend %font-m-14;
+		@extend %inline--middle;
+		box-sizing: border-box;
+		padding: 4px 8px;
+		background-color: $gray-0;
+		color: $gray-5;
+		transition: color 0.3s, background-color 0.3s;
+		margin: 4px 8px 4px 0;
+	}
+	.remove {
+		color: transparent;
+		transform: translateY(1px);
+		@include media('above-desktop') {
+			&:hover {
+				&:after {
+					color: $main-color;
+				}
+			}
+		}
+		&:after {
+			color: $gray-5;
+			font-family: "icon";
+			content: '\EA34';
+			font-size: 12px;
+			transition: color 0.3s;
+		}
+	}
+	.create,
+	.option {
+		padding: 8px;
+		transition: background-color 0.3s, color 0.3s;
+		&.active {
+			background-color: $main-color;
+			color: $white;
+		}
+	}
+}
+

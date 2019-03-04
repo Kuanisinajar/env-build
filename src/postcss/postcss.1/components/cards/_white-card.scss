@@ -1,0 +1,49 @@
+.white-card {
+  @extend %position-relative;
+  background-color: $white;
+  border: 1px solid $gray-1;
+	transition: border-color 0.3s;
+	padding: 24px;
+  @include media('above-desktop') {
+		&:hover {
+			border-color: $gray-2;
+		}
+	}
+	@include media('above-tablet') {
+		height: 280px;
+	}
+	@include media('below-tablet') {
+		padding: 16px;
+	}
+}
+
+.white-card__heading {
+	font-size:  1.625em;
+	margin-bottom: 32px;
+	@include media('below-desktop') {
+		font-size: 1.5em;
+		margin-bottom: 16px;
+	}
+}
+
+.white-card__paragraph {
+	color: $gray-5;
+	@include media('below-desktop') {
+		margin-bottom: 16px;
+		line-height: 1.25em;
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+	@include media('below-small') {
+		font-size: 0.875em;
+	}
+}
+
+.white-card__btn {
+	@include media('above-tablet') {
+		position: absolute;
+		bottom: 24px;
+		left: 24px;
+	}
+}

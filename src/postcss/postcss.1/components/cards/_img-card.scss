@@ -1,0 +1,258 @@
+.img-cards {
+	@extend %last-no-margin;
+	display: flex;
+	flex-wrap: wrap;
+	@include media('above-tablet') {
+		margin-bottom: 48px;
+	}
+	@include media('below-tablet') {
+		margin-bottom: 24px;
+	}
+	&.img-cards--margin-bottom-s {
+		@extend %last-no-margin;
+		@include media('above-tablet') {
+			margin-bottom: 40px;
+		}
+		@include media('below-tablet') {
+			margin-bottom: 24px;
+		}
+	}
+}
+
+.img-cards--isotope {
+	margin: 0 -12px;
+	&.img-cards {
+		display: block;
+	}
+	.img-card {
+		margin: 0;
+	}
+	&.cards-column-3 .img-card {
+		padding: 12px;
+		@include media('above-tablet') {
+			width: 33.33%;
+		}
+		@include media('below-tablet') {
+			width: 100%;
+		}
+	}
+	.img-card__link {
+		@extend %block;
+	}
+	.img-card__animation {
+		height: auto;
+	}
+	.img-card__container {
+		padding: 24px;
+		@include media('below-tablet') {
+			padding: 16px;
+		}
+	}
+}
+
+.img-card {
+	// DON'T ADD BACKGROUND COLOR
+	@extend %position-relative;
+	@include media('above-tablet') {
+		margin-bottom: 40px;
+		margin-right: 24px;
+	}
+	@include media('below-tablet') {
+		margin-bottom: 24px;
+	}
+	.cards-column-3 & {
+		@include media('above-tablet') {
+			width: calc(33.33% - 16px);
+			&:nth-child(3n) {
+				margin-right: 0;
+			}
+		}
+		@include media('below-tablet') {
+			width: 100%;
+		}
+	}
+	.cards-column-2 & {
+		width: calc(50% - 12px);
+		@include media('below-tablet') {
+			width: 100%;
+			margin-bottom: 16px;
+			&:last-child {
+				margin-bottom: 0;
+			}
+		}
+		@include media('above-tablet') {
+			&:nth-last-child(-n+2) {
+				margin-bottom: 0;
+			}
+			&:nth-child(2n) {
+				margin-right: 0;
+			}
+		}
+	}
+	.arrow-btn {
+		@extend %position-absolute;
+		bottom: 24px;
+	}
+	.border-btn {
+		@include media('above-small') {
+			position: absolute;
+			bottom: 24px;
+			right: 32px;
+		}
+		@include media('below-small') {
+			margin: 16px;
+		}
+	}
+}
+
+.img-card__animation {
+	@extend %full-height;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 3px 5px 1px rgba($black, 0.05);
+	transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+	@include media('above-desktop') {
+		&:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 10px 16px 0 rgba($black, .12);
+		}
+	}
+	&.img-card__animation--no-hover {
+		pointer-events:none;
+	}
+}
+
+.img-card__link {
+	@extend %full-height;
+	@include text-hover($default-color);
+	display: flex;
+	flex-direction: column;
+}
+
+.img-card__wrapper {
+	@extend %full-height;
+	display: flex;
+	flex-direction: column;
+}
+
+.img-card__img-wrap {
+	@extend %position-relative;
+	@extend %full-width;
+	overflow: hidden;
+}
+
+.img-card__img {
+	@extend %full-width;
+	@extend %full-height;
+	@extend %background-cover;
+	padding-top: 66%;
+	top: 0;
+	left: 0;
+	.img-card--s & {
+		padding-top: 40%;
+	}
+}
+
+.img-card__container {
+	@extend %position-relative;
+	background-color: $white;
+	flex-grow: 1;
+	.text-xl & {
+		display: flex;
+		flex-direction: column;
+		@include media('above-small') {
+			padding: 38px 54px;
+		}
+		@include media('below-small') {
+			padding: 16px;
+		}
+	}
+	.text-l & {
+		@include media('above-small') {
+			padding: 24px 24px 64px;
+		}
+		@include media('below-small') {
+			padding: 16px;
+		}
+	}
+	.text-s & {
+		@include media('above-small') {
+			padding: 32px 32px 72px;
+		}
+		@include media('below-small') {
+			padding: 16px;
+		}
+	}
+
+	.with-list & {
+		padding: 24px;
+	}
+}
+
+.img-card__heading {
+	margin-bottom: 16px;
+	@include media('above-small') {
+		font-size: 1.5em;
+	}
+	@include media('below-small') {
+		font-size: 1.2em;
+	}
+	.text-xl & {
+		@extend %font-m-32;
+		font-weight: $weight-b;
+		flex-grow: 1;
+		@include media('above-tablet') {
+			margin-bottom: 50px;
+		}
+	}
+}
+
+.img-card__subheading {
+	@extend %uppercase;
+	font-weight: $weight-b;
+	margin-bottom: 8px;
+	color: $blue;
+}
+
+.img-card__date {
+	@extend %block;
+	@extend %last-no-margin;
+	@extend %font-m-14;
+	letter-spacing: 1px;
+	font-style: italic;
+	color: $gray-4;
+	margin-bottom: 16px;
+}
+
+.img-card__paragraph {
+	font-weight: $weight-m;
+	font-size:  1em;
+	color: $gray-6;
+	&.img-card__paragraph--margin-bottom {
+		margin-bottom: 24px;
+	}
+}
+
+.img-card__label {
+	@extend %position-absolute;
+	bottom: 0;
+	padding: 4px;
+	color: white;
+	background-color: $orange;
+	.text-l & {
+		@include media('above-small') {
+			left: 24px;
+		}
+		@include media('below-small') {
+			left: 16px;
+		}
+	}
+	.text-s & {
+		@include media('above-small') {
+			left: 32px;
+		}
+		@include media('below-small') {
+			left: 16px;
+		}
+	}
+}

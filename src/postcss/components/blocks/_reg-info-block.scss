@@ -1,0 +1,38 @@
+.reg-info-block {
+	@extend %lost-clear;
+}
+
+.reg-info-block__heading {
+	lost-column: 3/10;
+	font-size: 2em;
+	font-weight: $weight-l;
+	@include media('below-tablet') {
+		font-size: 1.4em;
+		lost-column: 1/1;
+		margin-bottom: 16px;
+	}
+}
+
+.reg-info-block__list {
+	lost-column: 7/10;
+	@include media('below-tablet') {
+		lost-column: 1/1;
+	}
+}
+
+.reg-info-block__item {
+	@extend %last-no-margin;
+	margin-bottom: 24px;
+}
+
+.reg-info-block__link {
+	@extend %position-relative;
+	@extend %font-m-18;
+	padding-right: 24px;
+}
+
+.reg-info-block__icon {
+	@extend %position-absolute;
+	top: calc(50% - 9px);
+	right: 0;
+}

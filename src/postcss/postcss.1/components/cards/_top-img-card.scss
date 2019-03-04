@@ -1,0 +1,115 @@
+.top-img-cards {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	margin: 0 -12px;
+	.top-img-card {
+		.ie-browser & {
+			border: 1px solid $gray-2;
+		}
+		margin: 12px;
+		@include media('above-tablet') {
+			width: calc(33% - 22px);
+		}
+		@include media('below-tablet') {
+			width: 100%;
+		}
+	}
+	&.top-img-cards--4 {
+		.top-img-card {
+			width: calc(24% - 18px);
+			@include media('below-tablet') {
+				width: 100%;
+			}
+		}
+	}
+	&.top-img-cards--margin-bottom {
+		margin-bottom: 40px;
+	}
+}
+
+.top-img-card {
+	@extend %w-shadow-block;
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+
+  @include media('above-desktop') {
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 10px 16px 0 rgba($black, .12);
+		}
+  }
+
+	.arrow-btn {
+		@extend %position-absolute;
+		bottom: 20px;
+		left: 20px;
+	}
+	&.top-img-card--s {
+		.top-img-card__img {
+			padding-top: 45%;
+		}
+	}
+}
+
+.top-img-card__link {
+  @extend %full-width;
+	@extend %position-relative;
+	@extend %full-height;
+	@include text-hover($default-color);
+	display: flex;
+	flex-direction: column;
+}
+
+.top-img-card__container {
+	@extend %position-relative;
+	flex-grow: 1;
+	background-color: $white;
+	padding: 20px;
+	@include media('below-tablet') {
+		padding: 16px;
+	}
+}
+
+.top-img-card__img-wrap {
+  @extend %position-relative;
+  @extend %full-width;
+}
+
+.top-img-card__img {
+	@extend %full-width;
+	@extend %background-cover;
+	@extend %full-height;
+	padding-top: 60%;
+}
+
+.top-img-card__subheading {
+  @extend %uppercase;
+  @extend %font-b-14;
+	color: $blue;
+	margin-bottom: 8px;
+}
+
+.top-img-card__footer {
+	@extend %full-width;
+  left: 0;
+  bottom: 0;
+  padding: 10px 20px;
+  border-top: 1px solid $gray-1;
+}
+
+.top-img-card__note {
+  @extend %font-m-14;
+  color: $gray-4;
+}
+
+.top-img-card__icon {
+  @extend %position-absolute;
+  left: calc(50% - 20px);
+  top: calc(50% - 20px);
+  color: $white;
+  font-size: 40px;
+}
+
+.top-img-card__download-icon {
+	color: $main-color;
+}

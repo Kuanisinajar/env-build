@@ -1,0 +1,35 @@
+.inline-search {
+	@extend %position-relative;
+	@extend %full-width;
+	max-width: 385px;
+	display: flex;
+	margin-top: 12px;
+}
+
+.inline-search__input {
+	@extend %font-m-14;
+	background-color: $white;
+	border: 1px solid $gray-2;
+	flex-grow: 1;
+	padding: 0 16px;
+	@include media('below-tablet') {
+		padding: 0 8px;
+	}
+}
+
+.inline-search__btn {
+	&.fill-btn--s {
+		padding: 11px 14px;
+	}
+}
+
+.inline-search__clear {
+	@extend %font-m-14;
+	@include text-hover($main-color);
+	margin-left: 8px;
+	@include media('below-tablet') {
+		position: absolute;
+		top: -30px;
+		right: 0;
+	}
+}

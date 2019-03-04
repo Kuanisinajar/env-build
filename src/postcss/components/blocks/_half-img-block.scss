@@ -1,0 +1,28 @@
+.half-img-block {
+	@include media('above-tablet') {
+		display: flex;
+		justify-content: space-between;
+	}
+  &.half-img-block--divider {
+    padding-bottom: 64px;
+    margin-bottom: 64px;
+    border-bottom: 1px solid $gray-2;
+  }
+}
+
+.half-img-block__container {
+	width: calc(50% - 24px);
+	@include media('below-tablet') {
+		width: 100%;
+	}
+}
+
+.half-img-block__wrapper {
+	@extend %full-height;
+}
+
+.half-img-block__img {
+  @extend %full-width;
+	@extend %full-height;
+  @extend %background-cover;
+}

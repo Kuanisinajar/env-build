@@ -1,0 +1,21 @@
+.rating-stars {
+  @extend %flex-center;
+}
+
+.rating-stars__text {
+	@extend %font-b-14;
+  margin-right: 12px;
+}
+
+.rating-list__list {
+	line-height: 2em;
+}
+
+.rating-list__item {
+	@extend %position-relative;
+	@extend %inline--middle;
+	cursor: pointer;
+	width: 25px;
+	height: 25px;
+}
+

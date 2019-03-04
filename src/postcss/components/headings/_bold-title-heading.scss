@@ -1,0 +1,16 @@
+.bold-title-heading {
+	@extend %last-no-margin;
+	@include font($base-font, $weight-b, 1.125em, 1px, 1.125em);
+	color: $gray-6;
+	margin-bottom: 24px;
+}
+
+.bold-title-heading--l {
+	@extend %font-b-22;
+	color: $gray-6;
+	margin-bottom: 24px;
+}
+
+.bold-title-heading--green {
+	color: $main-color;
+}

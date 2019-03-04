@@ -1,0 +1,39 @@
+.center-card {
+    @extend %text--center;
+}
+
+.center-card__img {
+    @extend %align--center;
+    max-width: 150px;
+		margin-bottom: 16px;
+		&.center-card__img--small {
+			max-width: 88px;
+		}
+}
+
+.center-card__heading {
+
+	margin-bottom: 8px;
+	color: #333333;
+	@include media('above-small') {
+		font-size:  1.5em;
+	}
+	@include media('below-small') {
+		font-size:  1.3em;
+	}
+
+	&.center-card__heading--s {
+		font-size:  1.375em;
+		@include media('below-small') {
+			font-size: 1em;
+		}
+	}
+}
+
+.center-card__paragraph {
+	color: $gray-6;
+
+	&.center-card__paragraph--margin-btm {
+		margin-bottom: 16px;
+	}
+}

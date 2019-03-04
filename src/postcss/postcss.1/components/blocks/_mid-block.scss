@@ -1,0 +1,116 @@
+.mid-block {
+	@extend %position-relative;
+	@extend %last-no-margin;
+	display: flex;
+	align-items: center;
+	@include media('above-small') {
+		margin-bottom: 64px;
+		min-height: 480px;
+	}
+	@include media('below-small') {
+		min-height: 400px;
+		display: block;
+		height: auto;
+		margin-bottom: 32px;
+	}
+	&:nth-child(2n) {
+		.mid-block__container {
+			padding-right: 0;
+			@include media('above-small') {
+				lost-offset: 7/12;
+				padding-left: 48px;
+			}
+			@include media('below-small') {
+				lost-offset: 7/13;
+				padding-left: 24px;
+				padding-left: 0;
+			}
+		}
+		.mid-block__img {
+			left: 0;
+			right: auto;
+		}
+	}
+}
+
+
+
+.mid-block__container {
+	padding-left: 0;
+	@include media('above-small') {
+		lost-column: 5/12;
+		padding-right: 48px;
+	}
+	@include media('below-small') {
+		lost-column: 1/1;
+		padding-right: 0;
+	}
+}
+
+.mid-block__img {
+	@extend %background-cover;
+	@extend %full-height;
+	overflow: hidden;
+	top: 0;
+	right: 0;
+	@include media('above-small') {
+		position: absolute;
+		width: calc((100% - #{$inner-wrap}) / 2 + (#{$inner-wrap} - 24px * 11) / 12 * 7 + 24px * 6);
+	}
+	@include media('below-small') {
+		position: relative;
+		width: 100%;
+		height: 250px;
+		margin-bottom: 32px;
+	}
+}
+
+.mid-block__subheading {
+	@extend %uppercase;
+	font-weight: $weight-b;
+	letter-spacing: 1px;
+	color: $blue;
+	margin-bottom: 16px;
+}
+
+.mid-block__heading {
+	font-weight: $weight-l;
+	margin-bottom: 16px;
+	@include media('above-small') {
+		font-size: 2.5em;
+	}
+	@include media('below-small') {
+		font-size: 2em;
+	}
+	@include media('below-tablet') {
+		font-size: 1.6em;
+	}
+}
+
+.mid-block__paragraph {
+	@extend %last-no-margin;
+	@extend %font-m-18;
+	margin-bottom: 32px;
+}
+
+.mid-block--special {
+	align-items: flex-start;
+	.mid-block__container {
+		padding-right: 0;
+		padding-left: 24px;
+		@include media('above-small') {
+			lost-offset: 7/12;
+		}
+		@include media('below-small') {
+			lost-offset: 7/13;
+			padding-left: 0;
+		}
+	}
+	.mid-block__img {
+		right: auto;
+		left: 0;
+	}
+	.mid-block__paragraph {
+		margin-bottom: 20px;
+	}
+}

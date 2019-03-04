@@ -1,0 +1,221 @@
+#tech-2 {
+	height: 655px;
+	@include media('below-small') {
+		height: auto;
+		.iiot-animation {
+			height: 655px;
+		}
+	}
+	.line,
+	.line-2,
+	.line-3 {
+		@extend %position-absolute;
+	}
+	.internet {
+		@extend %position-absolute;
+		top: 0;
+		.iiot-animation__heading {
+			@extend %text--center;
+		}
+		.iiot-animation__heading {
+			margin-bottom: 8px;
+		}
+	}
+	.machines {
+		@extend %position-absolute;
+		bottom: 32px;
+		height: 120px;
+		div {
+			@extend %position-absolute;
+			bottom: 0;
+			&:nth-child(1) {
+				left: 0;
+				.line-2 {
+					left: 50%;
+				}
+			}
+			&:nth-child(2) {
+				right: 0;
+				.line-2 {
+					right: 50%;
+				}
+			}
+		}
+		.line-2 {
+			bottom: 90px;
+			width: 80px;
+			.ie-browser & {
+				bottom: 70px;
+			}
+		}
+		.line-3 {
+			bottom: 160px;
+			width: 182px;
+			.ie-browser & {
+				bottom: 143px;
+			}
+		}
+		.network {
+			top: -58px;
+		}
+	}
+	.desktop {
+		@extend %position-absolute;
+
+		.iiot-animation__heading,
+		img {
+			@extend %inline--middle;
+		}
+		.iiot-animation__heading {
+			@extend %position-absolute;
+			width: 85px;
+			text-align: center;
+		}
+		.line {
+			top: 20px;
+			width: 120px;
+		}
+	}
+
+	#internet {
+		opacity: 0;
+		left: calc(50% - 60px);
+		.line {
+			left: calc(50% - 2px);
+			top: 100px;
+		}
+	}
+
+	#cloud-platform {
+		left: calc(50% - 94px);
+		transform: scale(0);
+		img {
+			transform: translateX(34px);
+		}
+		.line {
+			left: calc(50% - 2px);
+			top: 85px;
+		}
+	}
+
+	#firewall {
+		@extend %position-absolute;
+		transform: scale(0);
+		top: 20%;
+		left: calc(50% - 60px);
+	}
+
+	#mes {
+		opacity: 0;
+		top: 25%;
+		left: calc(50% - 60px);
+		.iiot-animation__heading {
+			left: -90px;
+			top: calc(50% - 12px);
+		}
+		.line {
+			left: calc(50% + 15px);
+		}
+	}
+
+	#scada-server {
+		opacity: 0;
+		top: 50%;
+		right: calc(50% - 60px);
+		.iiot-animation__heading {
+			left: -90px;
+			top: calc(50% - 24px);
+		}
+		.line {
+			right: calc(50% + 15px);
+		}
+	}
+
+	#machine-1 {
+		opacity: 0;
+		width: 350px;
+		left: calc(50% - 175px);
+		> div {
+			&:nth-child(1) {
+				.line {
+					right: -40px;
+				}
+			}
+			&:nth-child(2) {
+				.line {
+					left: -40px;
+				}
+			}
+		}
+		.line {
+			bottom: 50px;
+		}
+		.line-3 {
+			left: 50%;
+		}
+	}
+
+	#machine-2 {
+		width: 262px;
+		right: 10%;
+		transform: scale(0);
+		.line-3 {
+			right: 50%;
+		}
+	}
+
+	.network {
+		@extend %position-absolute;
+		padding: 6px 12px;
+		font-weight: $weight-b;
+		color: $white;
+		background-color: $default-color;
+		border-radius: 20px;
+		left: calc(50% - 49px);
+		transform: scale(0);
+	}
+
+	.iiot-animation {
+		> .network {
+			top: 372px;
+		}
+	}
+}
+
+.not-ie {
+	#tech-2 {
+		.line,
+		.line-2,
+		.line-3 {
+			stroke-dasharray: 1000;
+			stroke-dashoffset: 1000;
+		}
+		.machines {
+			.line-2 {
+				stroke-dashoffset: -124;
+			}
+			.line-3 {
+				stroke-dasharray: 217;
+			}
+		}
+		#machine-1 {
+			.line-3 {
+				stroke-dashoffset: -217;
+			}
+		}
+		#machine-2 {
+			.line-3 {
+				stroke-dashoffset: 217;
+			}
+		}
+	}
+}
+
+.ie-browser {
+	#tech-2 {
+		.ie-line {
+			opacity: 0;
+		}
+	}
+}
+

@@ -1,0 +1,11 @@
+.save-note-block {
+	@extend %font-m-14;
+	color: $gray-5;
+	line-height: 1.4em;
+	display: none;
+	max-width: 200px;
+	vertical-align: middle;
+	.simple-icon-btn--tag + & {
+		margin-left: 8px;
+	}
+}

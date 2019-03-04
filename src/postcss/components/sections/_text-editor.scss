@@ -1,0 +1,164 @@
+%te-list {
+	// @extend %font-m-14;
+	line-height: 1.4em;
+	margin-bottom: 16px;
+  // padding-left: 24px;
+	li {
+		@extend %last-no-margin;
+		margin-bottom: 12px;
+  }
+}
+
+%te-h1 {
+	@extend %last-no-margin;
+	@extend %font-m-32;
+	margin-bottom: 24px;
+	@include media('below-tablet') {
+		font-size: 1.4em;
+	}
+}
+
+%te-h2 {
+	@extend %last-no-margin;
+	@extend %font-b-18;
+	margin-bottom: 16px;
+}
+
+%te-h3 {
+	@extend %last-no-margin;
+	@extend %font-m-18;
+	margin-bottom: 16px;
+	font-weight: $weight-l;
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+%te-h4 {
+	@extend %last-no-margin;
+	margin-bottom: 16px;
+	font-size: 1rem;
+	line-height: 1.25rem;
+	font-weight: $weight-b;
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+%te-h5 {
+	@extend %last-no-margin;
+	font-weight: $weight-b;
+	line-height: 1.3rem;
+	margin-bottom: 16px;
+	color: $blue;
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+%te-h6 {
+	@extend %last-no-margin;
+	@extend %uppercase;
+	@extend %font-b-14;
+	margin-bottom: 16px;
+	color: $blue;
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+.text-editor {
+	h1 {
+		@extend %te-h1;
+	}
+  h2 {
+		@extend %te-h2;
+  }
+  h3 {
+		@extend %te-h3;
+	}
+	h4 {
+		@extend %te-h4;
+	}
+  h5 {
+		@extend %te-h5;
+  }
+  h6 {
+		@extend %te-h6;
+  }
+  p {
+    @extend %text--left;
+		margin-bottom: 24px;
+		@include media('below-tablet') {
+			margin-bottom: 16px;
+		}
+	}
+	img {
+		@extend %last-no-margin;
+		margin-bottom: 24px;
+		width: auto;
+		max-width: 100%;
+	}
+  a {
+    @extend %text--green;
+		.ie-browser & {
+			display: inline;
+		}
+  }
+  ul, ol {
+    @extend %te-list;
+    @include media('below-mobile') {
+      padding-left: 16px;
+		}
+		ul {
+			padding-left: 16px;
+			margin-top: 4px;
+			> li {
+				@extend %bullet-list-style;
+				&:before {
+					background-color: transparent;
+					border: 1px solid $gray-4;
+				}
+			}
+		}
+		ol {
+			padding-left: 16px;
+			margin-top: 4px;
+			list-style-type: lower-latin;
+		}
+  }
+  ol {
+		list-style: decimal;
+		list-style-position: inside;
+  }
+  ul {
+    > li {
+			@extend %bullet-list-style;
+		}
+  }
+  hr {
+    border: 0.5px solid $gray-2;
+		margin-bottom: 40px;
+		@include media('below-tablet') {
+			margin-bottom: 24px;
+		}
+  }
+  i {
+    font-style: italic;
+	}
+	strong, b {
+		font-weight: $weight-b;
+	}
+	table {
+		@extend %border-table;
+	}
+}
+
+.text-editor--l {
+  p {
+    font-size: 1em;
+  }
+  ul, ol {
+    font-size: 1em;
+  }
+}

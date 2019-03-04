@@ -1,0 +1,105 @@
+.support-card-title {
+  font-size: 1.625em;
+	margin-bottom: 24px;
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+.support-card {
+  @extend %position-relative;
+  overflow: hidden;
+  height: 200px;
+  border: 1px solid $gray-1;
+  margin-bottom: 16px;
+
+  &.support-card--auto-height {
+    height: auto;
+	}
+	@include media('below-tablet') {
+		height: auto;
+	}
+}
+
+.support-card__link {
+	@include text-hover($default-color);
+  padding: 16px;
+  height: 100%;
+  @include media('above-desktop') {
+    &:hover {
+      .support-card__img {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.support-card__wrapper {
+  padding: 16px;
+	height: 100%;
+	&.support-card__wrapper--l {
+		padding: 24px;
+	}
+}
+
+.support-card__heading {
+  @extend %font-m-20;
+  margin-bottom: 16px;
+	position: relative;
+	z-index: 2;
+  &.support-card__heading--margin-s {
+    margin-bottom: 8px;
+	}
+
+	&.support-card__heading--margin-l {
+		@extend %font-m-18;
+		margin-bottom: 32px;
+	}
+
+}
+
+.support-card__paragraph {
+  @extend %position-relative;
+  @extend %inline--top;
+  width: calc(100% -  70px);
+	@include media('below-tablet') {
+		width: 100%;
+	}
+  &.support-card__paragraph--s {
+    @extend %font-m-14;
+  }
+  &.support-card__paragraph--margin-btm {
+    margin-bottom: 16px;
+  }
+  &.support-card__paragraph--full {
+    z-index: 1;
+    width: 100%;
+  }
+}
+
+.support-card__img {
+  @extend %position-absolute;
+  opacity: 0.6;
+  pointer-events: none;
+  width: 150px;
+  top: 40px;
+  right: -50px;
+  transition: 0.3s;
+	@include media('below-tablet') {
+		opacity: 0.3;
+		top: 0;
+	}
+  &.support-card__img--btm {
+    top: auto;
+    bottom: -24px;
+    right: -24px;
+		z-index: 0;
+		opacity: 1;
+	}
+	&.support-card__img--s {
+		width: 100px;
+		bottom: 0;
+		right: -15px;
+		z-index: 0;
+	}
+}

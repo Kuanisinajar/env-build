@@ -1,0 +1,43 @@
+.tag-btn {
+	@extend %font-m-14;
+	padding: 6px 8px;
+	background-color: $gray-1;
+	color: $gray-5;
+	transition: color 0.3s, background-color 0.3s;
+
+	&.tag-btn--flex {
+		@include media('below-mobile') {
+			display: flex;
+		}
+	}
+
+	@include media('above-desktop') {
+		&:hover {
+			background-color: $gray-2;
+			color: $main-color;
+		}
+	}
+}
+
+.tag-btn__text,
+.tag-btn__icon  {
+	@extend %inline--middle;
+}
+
+.tag-btn__icon {
+	font-size: 12px;
+}
+
+.tag-btn__text {
+	@include media('below-small') {
+		max-width: 120px;
+	}
+	@include media('below-tablet') {
+		max-width: none;
+	}
+}
+
+.tag-btn__icon + .tag-btn__text,
+.tag-btn__text + .tag-btn__icon {
+	margin-left: 2px;
+}

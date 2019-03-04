@@ -1,0 +1,77 @@
+.breadcrumb {
+	@extend %position-absolute;
+	@extend %full-width;
+	color: inherit;
+	top: 0;
+	left: 0;
+	padding: 16px 0;
+	z-index: 10;
+	@include media('below-tablet') {
+		padding: 8px 0;
+	}
+	& + .main-section {
+		padding-top: 80px;
+		@include media('below-tablet') {
+			padding-top: 48px;
+		}
+	}
+	.container > * {
+		@include media('below-tablet') {
+			display: none;
+			&:nth-last-child(-n+2) {
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.breadcrumb__link {
+	transition: color 0.3s;
+	@include media('above-desktop') {
+		&:hover {
+			color: $white;
+		}
+	}
+}
+
+.breadcrumb__link,
+.breadcrumb__current {
+	@extend %inline--middle;
+	@extend %font-m-14;
+	@include media('below-tablet') {
+		font-size: 0.75em;
+	}
+}
+
+.breadcrumb__link {
+	color: $gray-2;
+	@include media('above-desktop') {
+		&:hover {
+			color: $white;
+		}
+	}
+	.breadcrumb--dark & {
+		@include text-hover($gray-4);
+	}
+}
+
+.breadcrumb__current {
+	color: $white;
+	font-weight: $weight-b;
+	@include media('below-tablet') {
+		max-width: calc(100% - 24px);
+	}
+	.breadcrumb--dark & {
+		color: $gray-4;
+	}
+}
+
+.breadcrumb__icon {
+	@extend %inline--middle;
+	color: $white;
+	font-size: 10px;
+	padding: 0 4px;
+	.breadcrumb--dark & {
+		color: $gray-4;
+	}
+}

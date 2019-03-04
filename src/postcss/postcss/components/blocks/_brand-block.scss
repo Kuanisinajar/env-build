@@ -1,0 +1,41 @@
+.brand-block {
+	@extend %last-no-margin;
+	background-color: $gray-0;
+	padding: 32px;
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+	@include media('below-tablet') {
+		flex-direction: column;
+		padding: 16px;
+	}
+}
+
+.brand-block__list {
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+.brand-block__container {
+	flex-grow: 1;
+}
+
+.brand-block__item {
+	@extend %last-no-margin;
+	@extend %block;
+	margin-bottom: 16px;
+}
+
+.brand-block__detail {
+	@extend %inline--middle;
+	width: 49%;
+	&:first-child {
+		max-width: 125px;
+		font-weight: $weight-b;
+	}
+}
+
+.brand-block__img {
+	width: 161px;
+}

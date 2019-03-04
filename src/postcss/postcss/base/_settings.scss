@@ -1,0 +1,206 @@
+@lost gutter 24px;
+
+body, html {
+	@extend %full-width;
+	font-family: $base-font;
+	font-weight: $weight-m;
+	color: $default-color;
+	font-size: 16px;
+	overflow-x: hidden;
+	background-color: #fff;
+	-webkit-tap-highlight-color: rgba($default-color, 0.8);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	&.is-fixed {
+		@extend %position-fixed;
+		overflow-y:scroll;
+	}
+}
+
+body {
+	-webkit-text-size-adjust: none;
+	opacity: 0;
+	transition: opacity 0.3s;
+	.mti-inactive & {
+		opacity: 1;
+	}
+	&:before {
+		@extend %position-fixed;
+		@extend %full-width;
+		@extend %full-height;
+		pointer-events: none;
+		z-index: 400;
+		top: 0;
+		left: 0;
+		background-color: rgba($black, 0.6);
+		content: '';
+		opacity: 0;
+		transition: opacity 0.3s;
+	}
+	// &.modal-active {
+	// 	&:before {
+	// 		opacity: 1;
+	// 	}
+	// }
+}
+
+.body-section {
+	@extend %position-relative;
+	min-height: calc(100vh - 415px);
+	transition: transform 0.5s;
+	.modal-active & {
+		transform: translateY(-100px);
+	}
+	&.ps-active {
+		overflow: hidden;
+    height: calc(100vh - 480px);
+	}
+	@include media('below-desktop') {
+		margin-top: $header-mobile;
+	}
+	.main-section {
+		&:first-child:last-child {
+			min-height: calc(100vh - 415px);
+		}
+	}
+}
+
+a {
+	@extend %inlineblock;
+	@include text-hover($main-color);
+	cursor: pointer;
+	text-decoration: none;
+}
+
+p {
+	line-height: 1.5em;
+	letter-spacing: 0.16px;
+}
+
+i {
+	@extend %inline--middle;
+}
+
+img {
+	@extend %full-width;
+	@extend %block;
+}
+
+input, textarea {
+	border-radius: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    opacity: 1;
+}
+
+.default-hover,
+%default-hover {
+	transition: all 0.3s;
+	@include media('above-desktop') {
+		&:hover {
+			color: rgba($default-color, 0.8);
+		}
+	}
+}
+
+button, textarea, input, select {
+	border-radius: 0;
+}
+
+sup {
+	vertical-align: super;
+}
+
+%w-shadow-block {
+	background-color: $white;
+	box-shadow: 0 0 3px 0 rgba($black, 0.2);
+}
+
+
+// Carousels
+
+%c-arrow-icon {
+	@extend %block;
+	color: $gray-2;
+	font-size: 32px;
+	transition: color 0.3s;
+}
+
+%c-dots {
+	.slick-dots {
+		margin: 0;
+		& > li {
+			button {
+				width: 13px;
+				height: 13px;
+				background-color: $blue-gray;
+				@include media('below-tablet') {
+					width: 10px;
+					height: 10px;
+				}
+			}
+			&.slick-active {
+				button {
+						background-color: $orange;
+				}
+			}
+		}
+	}
+}
+
+%c-c-btn {
+	@extend %text--center;
+	width: 30px;
+	height: 30px;
+	border: 2px solid $blue-gray;
+	border-radius: 50%;
+	margin: 0 2px;
+	transition: border 0.3s;
+	@include media('above-desktop') {
+		&:hover {
+			border: 2px solid $main-color;
+		}
+	}
+}
+
+%c-c-btn-icon {
+	@extend %block;
+	font-size: 12px;
+	color: $blue-gray;
+	transition: color 0.3s;
+}
+
+%reset-btn {
+	border: none;
+	margin: 0;
+	padding: 0;
+	width: auto;
+	overflow: visible;
+
+	background: transparent;
+
+	/* inherit font & color from ancestor */
+	color: inherit;
+	font: inherit;
+
+	/* Normalize `line-height`. Cannot be changed from `normal` in Firefox 4+. */
+	line-height: normal;
+
+	/* Corrects font smoothing for webkit */
+	-webkit-font-smoothing: inherit;
+	-moz-osx-font-smoothing: inherit;
+
+	/* Corrects inability to style clickable `input` types in iOS */
+	-webkit-appearance: none;
+}
+
+/* Remove excess padding and border in Firefox 4+ */
+// &::-moz-focus-inner {
+// 	border: 0;
+// 	padding: 0;
+// }

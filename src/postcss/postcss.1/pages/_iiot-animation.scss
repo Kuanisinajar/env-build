@@ -1,0 +1,36 @@
+.iiot-animation {
+	@extend %position-relative;
+	@extend %full-height;
+	lost-column: 2/3;
+	@include media('below-small') {
+		lost-column: 1/1;
+	}
+	@include media('below-tablet') {
+		display: none;
+	}
+	img {
+		position: relative;
+		width: auto;
+	}
+}
+
+%iiot-animation__heading,
+.iiot-animation__heading {
+	font-size: 1.5em;
+	font-weight: $weight-b;
+}
+
+.iiot-animation__btm-text {
+	@extend %iiot-animation__heading;
+	@extend %position-absolute;
+	@extend %text--center;
+	@extend %full-width;
+	bottom: 0;
+	opacity: 0;
+}
+
+.iiot-ani-wrap {
+	img {
+		z-index: 2;
+	}
+}

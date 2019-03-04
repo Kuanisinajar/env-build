@@ -1,0 +1,132 @@
+.gray-text-card {
+  padding: 40px 24px;
+	background-color: $gray-1;
+
+	&.gray-text-card--wide {
+		padding: 72px 96px;
+		@include media('below-small') {
+			padding: 54px;
+		}
+		@include media('below-tablet') {
+			padding: 24px 16px;
+		}
+	}
+	&.gray-text-card--light {
+		background-color: $gray-0;
+	}
+	&.gray-text-card--white {
+		background-color: $white;
+	}
+	&.gray-text-card--no-padding {
+		padding: 0;
+	}
+	&.column {
+		@extend %flex-wrap;
+	}
+}
+
+.gray-text-card__title {
+  @extend %flex;
+  align-items: center;
+  font-weight: $weight-b;
+	margin-bottom: 24px;
+	&.gray-text-card__title--big {
+		font-size: 2.8em;
+		font-weight: $weight-l;
+		margin-bottom: 48px;
+		@include media('below-tablet') {
+			margin-bottom: 24px;
+			font-size: 1.6em;
+		}
+	}
+}
+
+.gray-text-card__subtitle {
+	font-weight: $weight-l;
+	font-size: 2em;
+	color: $gray-4;
+}
+
+.gray-text-card__icon--l {
+	display: block;
+	font-size: 2em;
+	color: $gray-4;
+	margin-bottom: 16px;
+}
+
+.gray-text-card__paragraph {
+	@extend %font-m-20;
+	color: $gray-5;
+	margin-bottom: 40px;
+	@include media('below-tablet') {
+		font-size: 1em;
+	}
+	&:last-child {
+		margin-bottom: 0;
+	}
+}
+
+.gray-text-card__img-wraper {
+	background-color: $white-light;
+	padding: 32px 64px;
+	flex: 0 0 33%;
+	@include media('below-small') {
+		padding: 32px 40px;
+	}
+	.ie-browser & {
+		@include media('above-tablet') {
+			max-width: 33%;
+		}
+	}
+	@include media('below-tablet') {
+		flex: 0 0 100%;
+		padding: 16px;
+		img {
+			max-width: 100px;
+			margin: 0 auto;
+		}
+	}
+}
+
+.gray-text-card__info {
+	flex: 0 0 67%;
+	padding: 48px 40px;
+	.ie-browser & {
+		@include media('above-tablet') {
+			max-width: 67%;
+		}
+	}
+	@include media('below-tablet') {
+		flex: 0 0 100%;
+		padding: 16px;
+	}
+	.js-save-tag {
+		@extend %inline--middle;
+		margin-left: 8px;
+	}
+}
+
+.gray-text-card__info-heading {
+	font-size: 2em;
+	color: $gray-6;
+	margin-bottom: 24px;
+	@include media('below-tablet') {
+		font-size: 1.4em;
+		line-height: 1.2em;
+		margin-bottom: 16px;
+	}
+}
+
+.gray-text-card__info-spec {
+	@extend %font-m-14;
+	color: $gray-5;
+	margin-bottom: 24px;
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+.gray-text-card__info-des {
+	color: $black;
+	margin-bottom: 24px;
+}

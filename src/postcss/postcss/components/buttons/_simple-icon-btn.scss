@@ -1,0 +1,104 @@
+.simple-icon-btn {
+	@extend %position-relative;
+	overflow: visible;
+	&.simple-icon-btn--black {
+		@include text-hover($default-color);
+	}
+	&.simple-icon-btn--gray {
+		@include text-hover($gray-4);
+	}
+	&.simple-icon-btn--main {
+		@include text-hover($main-color);
+	}
+	&.favorite-active,
+	&.simple-icon-btn--orange {
+		@include text-hover($orange);
+	}
+	&.simple-icon-btn--s {
+		@extend %font-m-14;
+		.simple-icon-btn__text {
+			padding-left: 18px;
+		}
+	}
+	&.simple-icon-btn--m {
+		.simple-icon-btn__icon {
+			font-size: 16px;
+		}
+	}
+	&.simple-icon-btn--l {
+		.simple-icon-btn__icon {
+			font-size: 23px;
+			top: calc(50% - 11px);
+		}
+		.simple-icon-btn__icon + .simple-icon-btn__text{
+			padding-left: 32px;
+		}
+	}
+	&.simple-icon-btn--tag {
+		display: inline-block;
+		@include text-hover($gray-5);
+		@include media('above-desktop') {
+			&:hover {
+				.simple-icon-btn__text {
+					color: rgba($black, 0.8);
+				}
+			}
+		}
+		.simple-icon-btn__text {
+			color: $black;
+			transition: color 0.3s;
+		}
+	}
+	&.js-print,
+	&.js-save-tag {
+		cursor: pointer;
+	}
+	&.form-add {
+		@extend %position-absolute;
+		bottom: -28px;
+		right: 0;
+	}
+}
+
+.simple-icon-btn__icon {
+	@extend %position-absolute;
+	top: calc(50% - 8px);
+	@include media('below-tablet') {
+		top: calc(50% - 7px);
+	}
+}
+
+.simple-icon-btn__text {
+	@extend %inline--middle;
+	padding-right: 24px;
+	b {
+		font-weight: $weight-b;
+	}
+}
+
+.simple-icon-btn__icon + .simple-icon-btn__text{
+	padding-left: 24px;
+	padding-right: 0;
+}
+
+.simple-icon-btn__text + .simple-icon-btn__icon {
+	right: 0;
+}
+
+.simple-icon-btn__img {
+	@extend %inline--middle;
+	width: 22px;
+	.ie-browser & {
+		height: 22px;
+	}
+	& + .simple-icon-btn__text {
+		color: $gray-6;
+		transition: color 0.3s;
+		margin-left: 8px;
+		@include media('above-desktop') {
+			&:hover {
+				color: rgba($main-color, 0.8);
+			}
+		}
+	}
+}

@@ -1,0 +1,24 @@
+.border-bullet-list {
+  @extend %flex-wrap;
+  border-left: 2px solid $main-color;
+  padding-left: 24px;
+}
+
+.border-bullet-list__item {
+  @extend %position-relative;
+  @extend %last-no-margin;
+  @extend %font-m-14;
+  color: $gray-5;
+  margin: 0 24px 12px 0;
+
+  &:before {
+		@extend %position-absolute;
+		width: 4px;
+		height: 4px;
+		border-radius: 50%;
+		background-color: $gray-2;
+		content: '';
+		top: 4px;
+		left: -8px;
+	}
+}

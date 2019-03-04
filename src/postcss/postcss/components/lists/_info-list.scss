@@ -1,0 +1,16 @@
+.info-links {
+	display: flex;
+	margin-top: 8px;
+}
+
+.info-link {
+	color: $green;
+	font-size: 0.81em;
+}
+
+.info-links--with-dot {
+	&::after {
+		content: "・";
+		color: $black;
+	}
+}

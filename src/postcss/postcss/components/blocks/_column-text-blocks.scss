@@ -1,0 +1,35 @@
+.column-text-block {
+  @extend %last-no-margin;
+	margin-bottom: 56px;
+	@include media('below-tablet') {
+		margin-bottom: 32px;
+	}
+}
+
+.column-text-block__top {
+	margin-bottom: 40px;
+	@include media('below-tablet') {
+		margin-bottom: 24px;
+	}
+}
+
+.column-text-block__heading {
+	@extend %font-m-22;
+  color: $main-color;
+	margin-bottom: 16px;
+	transition: color 0.3s;
+}
+
+.column-text-block__paragraph {
+  color: $gray-6;
+}
+
+.column-text-block__link {
+	@include media('above-desktop') {
+		&:hover {
+      .column-text-block__heading {
+				color: rgba($main-color, 0.6);
+      }
+		}
+	}
+}

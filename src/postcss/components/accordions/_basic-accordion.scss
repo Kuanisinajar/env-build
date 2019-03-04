@@ -1,0 +1,62 @@
+.basic-accordion__block {
+	background-color: $white;
+	.js-accordion-main {
+		display: none;
+		&.basic-accordion__container {
+			display: block;
+		}
+	}
+}
+
+.basic-accordion__trigger {
+	@extend %flex-between;
+	@extend %full-width;
+	@extend %block;
+	@extend %w-shadow-block;
+	position: relative;
+	z-index: 5;
+	padding: 24px 32px;
+	transition: background-color 0.3s;
+	@include media('above-desktop') {
+		&:hover {
+			background-color: rgba($main-color, 0.06);
+		}
+	}
+	@include media('below-tablet') {
+		padding: 16px;
+	}
+	&.is-active {
+		.basic-accordion__icon {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.basic-accordion__heading {
+	@extend %font-b-18;
+}
+
+.basic-accordion__icon {
+	color: $gray-5;
+}
+
+.basic-accordion__container {
+	background-color: $white-light;
+	padding: 24px 32px;
+	@include media('below-tablet') {
+		padding: 16px;
+	}
+}
+
+.basic-accordion__num {
+	@extend %flex-center;
+}
+
+.basic-accordion__amount {
+	margin-right: 16px;
+}
+
+.basic-accordion__paragraph {
+	@extend %last-no-margin;
+	margin-bottom: 16px;
+}

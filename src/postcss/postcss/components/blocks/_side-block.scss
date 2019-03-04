@@ -1,0 +1,12 @@
+.side-block {
+	@extend %last-no-margin;
+	margin-bottom: 40px;
+	.js-save-tag {
+		margin-bottom: 24px;
+	}
+}
+
+.side-block__heading {
+	@extend %font-b-14;
+	margin-bottom: 16px;
+}

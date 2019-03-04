@@ -1,0 +1,104 @@
+.account-nav {
+	background-color: $main-color;
+	color: $white;
+	z-index: 20;
+	.icon-arrow-down {
+		@extend %inline--middle;
+		font-size: 12px;
+		margin-left: 8px;
+		transform: translateY(2px);
+	}
+}
+
+.account-nav__link {
+	@extend %font-m-18;
+	@extend %flex-center;
+	@include text-hover($white);
+	height: 60px;
+	padding: 0 16px;
+	transition: all 0.3s;
+	@include media('below-tablet') {
+		font-size: 0.875em;
+		padding: 0 8px;
+		height: 48px;
+	}
+}
+
+.account-nav__item,
+.account-nav__profile {
+	@extend %inline--middle;
+	@include bg-hover($main-color);
+	&:hover {
+		.account-nav__sublist {
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+}
+
+.account-nav__item {
+	@include media('below-desktop') {
+		&:first-child {
+			.account-nav__link {
+				padding-left: 0;
+			}
+			.account-nav__sublist {
+				left: 0;
+				.account-nav__link {
+					padding: 0 16px;
+				}
+			}
+		}
+	}
+}
+
+.account-nav__profile {
+	@include media('below-desktop') {
+		.account-nav__text {
+			display: none;
+		}
+		> .account-nav__link {
+			padding: 0;
+		}
+		.account-nav__sublist {
+			right: 0;
+			width: 150px;
+			.account-nav__link {
+				padding: 0 16px;
+			}
+		}
+		.icon-arrow-down {
+			margin-left: 4px;
+		}
+	}
+}
+
+.account-nav__icon {
+	@extend %inline--middle;
+	font-size: 25px;
+	margin-right: 4px;
+}
+
+.account-nav__text {
+	@extend %inline--middle;
+}
+
+.account-nav__sublist {
+	@extend %position-absolute;
+	width: 180px;
+	z-index: 5;
+	background-color: color($main-color shade(16%));
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.3s;
+	.account-nav__item {
+		@extend %full-width;
+		background-color: transparent;
+	}
+	.account-nav__link {
+		justify-content: flex-start;
+		@include media('below-tablet') {
+			height: 40px;
+		}
+	}
+}

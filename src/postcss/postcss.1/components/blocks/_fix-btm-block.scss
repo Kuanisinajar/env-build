@@ -1,0 +1,17 @@
+.fix-btm-block {
+	@extend %position-fixed;
+	@extend %text--center;
+	@extend %full-width;
+	bottom: 0;
+	left: 0;
+	background-color: $gray-0;
+	padding: 17px 0;
+	z-index: 20;
+}
+
+.fix-btm-block__text {
+	@extend %inline--middle;
+	@extend %font-m-18;
+	color: $gray-6;
+	margin-right: 24px;
+}

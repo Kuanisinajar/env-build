@@ -1,0 +1,32 @@
+.video-btn {
+    transition: color 0.3s;
+    &.video-btn--white {
+        color: $white;
+        @include media('above-desktop') {
+            &:hover {
+                color: rgba($white, 0.8);
+            }
+        }
+    }
+}
+
+.video-btn__icon {
+		@extend %inline--middle;
+		&:last-child {
+			margin-right: 0;
+		}
+		@include media('above-tablet') {
+			font-size: 55px;
+			margin-right: 16px;
+		}
+		@include media('below-tablet') {
+			font-size: 30px;
+			margin-right: 8px;
+		}
+}
+
+.video-btn__text {
+   @extend %inline--middle;
+   @extend %uppercase;
+   @extend %font-m-14;
+}

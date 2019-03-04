@@ -1,0 +1,44 @@
+.business-card {
+	@extend %position-relative;
+	background-color: $white;
+	padding: 48px 40px;
+	lost-column: 1/2;
+	lost-offset: 1/2;
+	@include media('below-tablet') {
+		lost-column: 1/1;
+		lost-offset: 1;
+		padding: 24px 16px;
+	}
+}
+
+.business-card__top {
+  @extend %text--center;
+  height: 88px;
+  margin-bottom: 24px;
+}
+
+.business-card__logo {
+  @extend %full-height;
+  width: auto;
+  margin: 0 auto;
+}
+
+.business-card__list {
+  @extend %full-width;
+  @extend %flex;
+	margin-bottom: 16px;
+	@include media('below-tablet') {
+		flex-direction: column;
+	}
+}
+
+.business-card__title {
+  font-weight: $weight-b;
+	@include media('above-tablet') {
+		width: 30%;
+	}
+	@include media('below-tablet') {
+		width: 100%;
+		margin-bottom: 4px;
+	}
+}

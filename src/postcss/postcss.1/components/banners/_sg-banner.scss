@@ -1,0 +1,24 @@
+.sg-banner__wrapper {
+	@extend %position-absolute;
+	@extend %full-height;
+  top: 0;
+  left: 50%;
+}
+
+.sg-banner__img {
+	@extend %position-absolute;
+	@extend %background-cover;
+	@extend %full-height;
+	top: 0;
+	right: 0;
+	width: 50%;
+	&:before {
+    @extend %position-absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(to right, $white 0%, rgba($white, 0) 25%);
+  }
+}

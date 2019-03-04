@@ -1,0 +1,14 @@
+.xtra-list__heading {
+	@extend %font-b-22;
+	color: $blue;
+	margin-bottom: 16px;
+}
+
+.xtra-list__item {
+	@extend %last-no-margin;
+	@extend %font-m-18;
+	margin-bottom: 8px;
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}

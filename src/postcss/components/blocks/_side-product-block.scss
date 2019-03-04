@@ -1,0 +1,36 @@
+.side-product-block {
+	padding: 16px 0;
+	border-bottom: 1px solid $gray-2;
+	&:first-child {
+		padding-top: 0;
+	}
+	&:last-of-type {
+		margin-bottom: 16px;
+	}
+}
+
+.side-product-block__img {
+	@extend %inline--top;
+	width: 56px;
+	margin-right: 8px;
+}
+
+.side-product-block__container {
+	@extend %inline--top;
+	width: calc(100% - 70px);
+}
+
+.side-product-block__heading {
+	@extend %font-b-14;
+	color: $main-color;
+	margin-bottom: 8px;
+}
+
+.side-product-block__paragraph {
+	@extend %font-m-14;
+	line-height: 1.2em;
+}
+
+.side-product-block__link {
+	@include text-hover($default-color);
+}

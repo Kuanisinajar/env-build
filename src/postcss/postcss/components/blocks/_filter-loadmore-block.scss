@@ -1,0 +1,26 @@
+.filter-loadmore-block {
+	@extend %text--center;
+	@extend %w-shadow-block;
+	padding: 12px 0;
+	margin-top: -32px;
+	&.filter-loadmore-block--no-bg {
+		box-shadow: none;
+		background-color: transparent;
+		margin-top: 0;
+	}
+	&.filter-loadmore-block--no-shadow {
+		box-shadow: none;
+	}
+	&.filter-loadmore-block--xtr-margin {
+		margin-top: 0;
+	}
+	.simple-icon-btn__text {
+		@extend %uppercase;
+	}
+	.simple-icon-btn__icon {
+		font-size: 12px;
+	}
+	.arrow-btn {
+		margin: 0 auto;
+	}
+}

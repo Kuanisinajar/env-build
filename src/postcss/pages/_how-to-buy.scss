@@ -1,0 +1,18 @@
+#taiwan-city-select {
+	float: left;
+}
+
+.htb-switch {
+	@include media('above-tablet') {
+		position: absolute;
+		top: 32px;
+		right: 32px;
+	}
+	@include media('below-tablet') {
+		margin-bottom: 16px;
+	}
+}
+
+.js-htb-rerset {
+	padding: 16px;
+}

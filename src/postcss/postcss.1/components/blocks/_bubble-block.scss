@@ -1,0 +1,87 @@
+.bubble-block {
+	transform: translateY(30px);
+	&:before {
+		width: 0;
+		height: 0;
+		border-left: 10px solid transparent;
+		border-right: 10px solid transparent;
+		border-top: 10px solid $white;
+		position: absolute;
+		bottom: 30px;
+		left: calc(50% - 10px);
+		@include media('above-tablet') {
+			content: '';
+		}
+	}
+	&.pointer-block__bubble {
+		color: $default-color;
+		background-color: transparent;
+		font-size: 1em;
+		@include media('above-desktop') {
+			&:hover {
+				pointer-events: auto;
+				opacity: 1;
+			}
+		}
+		@include media('above-tablet') {
+			padding: 0 0 40px 0;
+			width: 360px;
+			left: calc(50% - 180px);
+		}
+		@include media('below-tablet') {
+			width: auto;
+			left: calc(50% - 156px);
+		}
+	}
+	.bullet-list__item {
+		margin-bottom: 4px;
+		&:before {
+			background-color: $blue-gray;
+		}
+	}
+
+}
+
+.bubble-block__shadow {
+	box-shadow: 1px 4px 10px rgba($gray-2, 0.8);
+}
+
+.bubble-block__top {
+	padding: 16px;
+	background-color: $blue-gray-light;
+}
+
+.bubble-block__subheading {
+	color: $main-color;
+	font-weight: $weight-b;
+	font-size: 0.75em;
+	margin-bottom: 8px;
+}
+
+.bubble-block__heading {
+	@extend %font-m-18;
+	margin-bottom: 16px;
+}
+
+.bubble-block__title {
+	@extend %inline--middle;
+	width: calc(100% - 72px);
+}
+
+.bubble-block__img {
+	@extend %inline--middle;
+	width: 50px;
+	height: auto;
+	margin-left: 16px;
+}
+
+.bubble-block__bottom {
+	@extend %flex-center;
+	padding: 16px;
+	background-color: $white;
+}
+
+.bubble-block__btn {
+	margin-right: 16px;
+	width: 185px;
+}

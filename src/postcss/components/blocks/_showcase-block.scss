@@ -1,0 +1,38 @@
+.showcase-block__detail--container {
+	@extend %position-relative;
+	@extend %full-width;
+	margin-bottom: 16px;
+	display: none;
+	&.is-active {
+		display: block;
+	}
+	.simple-icon-btn {
+		@extend %position-absolute;
+		top: 0;
+		right: 0;
+		i {
+			@extend %position-relative;
+		}
+	}
+}
+
+.showcase-block__list {
+	@extend %lost-clear;
+}
+
+.showcase-block__item {
+	lost-column: 1/7 7 8px;
+	cursor: pointer;
+	border: 1px solid $gray-2;
+	transition: border-color .3s;
+	&.is-active {
+		border: 1px solid $main-color;
+	}
+}
+
+.showcase-block__thb-img {
+	@extend %background-cover;
+	@extend %full-width;
+	@extend %full-height;
+	padding-top: 100%;
+}

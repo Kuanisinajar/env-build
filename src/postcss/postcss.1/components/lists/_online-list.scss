@@ -1,0 +1,28 @@
+.online-list {
+	padding: 16px;
+	background-color: $white-light;
+	.modal & {
+		padding: 0 32px;
+		margin-bottom: 60px;
+	}
+	.flex-between {
+		padding-bottom: 8px;
+		border-bottom: 1px solid $gray-3;
+	}
+}
+
+.online-list__heading {
+	@extend %uppercase;
+	@extend %font-b-18;
+	color: $blue;
+}
+
+.online-list__item {
+	@extend %flex-between;
+	padding: 8px 0;
+	border-bottom: 1px solid $gray-1;
+	&:last-child {
+		border-bottom: none;
+	}
+}
+

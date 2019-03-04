@@ -1,0 +1,90 @@
+.border-btn {
+	@extend %inlineblock;
+	@include rec-btn(border-btn);
+	&.border-btn--main {
+		border: 2px solid $main-color;
+		color: $main-color;
+		@include media('above-desktop') {
+			&:hover {
+				background-color: $main-color;
+				color: $white;
+			}
+		}
+	}
+	&.border-btn--dash {
+		border: 1px dashed $gray-2;
+		color: $gray-3;
+		.border-btn__icon {
+			font-size: 10px;
+			top: calc(50% - 5px);
+		}
+		@include media('above-desktop') {
+			&:hover {
+				background-color: $gray-0;
+			}
+		}
+	}
+
+	&.border-btn--white {
+		border: 2px solid $white;
+		color: $white;
+		@include media('above-desktop') {
+			&:hover {
+				background-color: $white;
+				color: $main-color;
+			}
+		}
+	}
+	&.border-btn--red {
+		border: 2px solid $red;
+		color: $red;
+		@include media('above-desktop') {
+			&:hover {
+				background-color: $red;
+				color: $white;
+			}
+		}
+	}
+	&.border-btn--gray {
+		border: 2px solid $gray-3;
+		color: $gray-3;
+		@include media('above-desktop') {
+			&:hover {
+				background-color: $gray-3;
+				color: $white;
+			}
+		}
+	}
+	&.border-btn--disable {
+		border: 2px solid $gray-2;
+		color: $gray-2;
+	}
+}
+
+.js-follow-btn {
+	text-transform: none;
+	font-weight: $weight-b;
+	margin-left: 8px;
+	&.is-active {
+		border: none;
+		border: 2px solid $gray-1;
+		background-color: $gray-1;
+		color: $gray-5;
+		@include media('above-desktop') {
+			&:hover {
+				border: 2px solid $gray-2;
+				background-color: $gray-2;
+				color: $gray-5;
+			}
+		}
+	}
+	& + .save-note-block {
+		margin-left: 8px;
+	}
+	&.border-btn--l .border-btn__icon {
+		font-size: 18px;
+	}
+	&.border-btn .border-btn__icon + .border-btn__text {
+		margin-left: 2px;
+	}
+}

@@ -1,0 +1,54 @@
+/* ------------------------------------
+ *  Width and Height
+ * ------------------------------------ */
+
+/*wrap*/
+$inner-wrap: 1160px;
+
+/*nav*/
+$header: 87px;
+$header-mobile: 50px;
+
+/* ------------------------------------
+ *  Color
+ * ------------------------------------ */
+
+$white: #FFFFFF;
+$white-light: #FCFCFC;
+
+$black: #202020;
+$gray-6: #484848;
+$gray-5: #717171;
+$gray-4: #858585;
+$gray-3: #ADADAD;
+$gray-2: #D6D6D6;
+$gray-1: #EAEAEA;
+$gray-0: #F4F4F4;
+
+$blue-gray: #AFB3BA;
+$blue-gray-light: #E2E7EA;
+
+
+$green: #008787;
+$green-light: #3EE9CB;
+
+$blue: #204a88;
+$orange: #FF8000;
+$orange-light: #fa943e;
+$red: #E26C6C;
+
+$default-color: $black;
+
+$main-color: $green;
+$sub-color: $green-light;
+
+
+/* ------------------------------------
+ *  Font
+ * ------------------------------------ */
+
+$base-font: 'Neue Helvetica W01', Helvetica, Arial, "微軟正黑體", "Microsoft JhengHei", sans-serif;
+
+$weight-l: 200;
+$weight-m: 400;
+$weight-b: 700;

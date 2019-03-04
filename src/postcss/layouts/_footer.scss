@@ -1,0 +1,190 @@
+footer {
+	@extend %position-relative;
+	background-color: $white;
+	border-top: 1px solid $gray-0;
+}
+
+.footer__main {
+	@include media('above-tablet') {
+		padding: 48px 0;
+	}
+	@include media('below-tablet') {
+		padding: 24px 0;
+	}
+}
+
+.footer__container {
+	display: flex;
+	@include media('above-tablet') {
+		justify-content: space-between;
+	}
+	@include media('below-tablet') {
+		flex-direction: column;
+	}
+}
+
+.footer__block {
+	&:not(.-larger) {
+		max-width: 450px;
+	}
+	@include media('below-tablet') {
+		&:first-child {
+			margin-bottom: 16px;
+		}
+	}
+}
+
+.footer__heading {
+	@extend %uppercase;
+	@extend %font-b-14;
+	margin-bottom: 16px;
+	color: $gray-5;
+}
+
+.footer__media {
+	@extend %inline--middle;
+	@include media('above-small') {
+		margin-right: 20px;
+	}
+	@include media('below-small') {
+		margin-right: 8px;
+	}
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.footer__media-link {
+	@include media('above-desktop') {
+		&:hover {
+			.footer__media-icon {
+				color: $main-color;
+			}
+		}
+	}
+}
+
+.footer__media-icon {
+	font-size: 40px;
+	color: $gray-4;
+	transition: color 0.3s;
+}
+
+.footer__paragraph {
+	@extend %font-m-14;
+	color: $gray-5;
+	line-height: 1.2em;
+}
+
+.form-control {
+	@extend %full-width;
+	@extend %font-m-14;
+	padding: 11px;
+	background-color: #F1F1F2;
+	border: 1px solid $main-color;
+	flex-grow: 1;
+	transition: border 0.3s, background-color 0.3s;
+	&:focus {
+		border: 1px solid $sub-color;
+		background-color: $white;
+		&::-webkit-input-placeholder {
+			color: $white;
+		}
+		&::-moz-placeholder {
+			color: $white;
+		}
+		&:-ms-input-placeholder {
+			color: $white;
+		}
+		&:-moz-placeholder {
+			color: $white;
+		}
+	}
+}
+
+.SubscriptionButton {
+	@extend %reset-btn;
+	@extend %inline--middle;
+	@extend %uppercase;
+	@extend %font-m-14;
+	@include bg-hover($main-color);
+	background-color: $main-color;
+	color: $white;
+	padding: 13px 16px;
+	align-self: stretch;
+	height: 42px;
+	margin-left: -6px;
+}
+
+.footer__bottom {
+	border-top: 1px solid $gray-0;
+	padding: 8px 0;
+	@include media('above-tablet') {
+		margin-top: 32px;
+	}
+	@include media('below-tablet') {
+		margin-top: 0;
+	}
+	.footer__container {
+		@include media('above-tablet') {
+			align-items: center;
+		}
+	}
+}
+
+.footer__list {
+	@extend %inline--middle;
+	margin-right: 24px;
+}
+
+.footer__item {
+	@extend %inline--middle;
+	border-right: 1px solid $gray-0;
+	&:last-child {
+		border-right: none;
+	}
+}
+
+.footer__link {
+	@extend %uppercase;
+	@extend %block;
+	@include text-hover($gray-5);
+	font-size: 11px;
+	letter-spacing: 1px;
+	@include media('above-tablet') {
+		padding: 0 8px;
+	}
+	@include media('below-tablet') {
+		padding-right: 16px;
+	}
+}
+
+.footer__copyright {
+	@extend %inline--middle;
+	font-size: 0.75em;
+	color: $blue-gray;
+}
+
+.editing-form-control-nested-control,
+.FormPanel,
+#p_lt_ctl03_MoxaGenericContainer_MoxaGenericContainer_zone_CustomSubscriptionForm_formElem {
+	@extend %inline--middle;
+}
+
+.editing-form-control-nested-control,
+.FormPanel {
+	@extend %full-width;
+}
+
+.Subscription {
+	margin-bottom: 16px;
+}
+
+.newsletter-input {
+	@extend %inline--middle;
+	width: calc(100% - 92px);
+}
+
+.NewsletterList {
+	display: none;
+}

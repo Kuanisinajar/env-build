@@ -1,0 +1,82 @@
+.loader {
+  width: 50px;
+  height: 50px;
+  position: relative;
+  margin: 40px auto 0;
+  border-radius: 50%;
+  span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    animation-duration: 1.8s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    &:before {
+      content: "";
+      width: 10%;
+      height: 10%;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      margin-left: -2.5%;
+      background-color: $main-color;
+      border-radius: 50%;
+    }
+    &:nth-child(1) {
+      transform: rotate(30deg);
+      animation-name: spin1;
+      animation-delay: .5s;
+    }
+    &:nth-child(2) {
+      transform: rotate(15deg);
+      animation-name: spin2;
+      animation-delay: .6s;
+    }
+    &:nth-child(3) {
+      transform: rotate(0deg);
+      animation-name: spin3;
+      animation-delay: .7s;
+    }
+    &:nth-child(4) {
+      transform: rotate(-15deg);
+      animation-name: spin4;
+      animation-delay: .8s;
+    }
+    &:nth-child(5) {
+      transform: rotate(-30deg);
+      animation-name: spin5;
+      animation-delay: .9s;
+    }
+  }
+}
+
+@keyframes spin1 {
+  to {
+    transform: rotate(390deg);
+  }
+}
+
+@keyframes spin2 {
+  to {
+    transform: rotate(375deg);
+  }
+}
+
+@keyframes spin3 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spin4 {
+  to {
+    transform: rotate(345deg);
+  }
+}
+
+@keyframes spin5 {
+  to {
+    transform: rotate(330deg);
+  }
+}

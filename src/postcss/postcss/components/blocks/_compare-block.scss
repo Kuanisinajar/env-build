@@ -1,0 +1,110 @@
+.compare-block {
+	@extend %position-fixed;
+	@extend %full-width;
+	bottom: 0;
+	left: 0;
+	z-index: 20;
+}
+
+.compare-block__top {
+	@extend %flex-center;
+	@extend %full-width;
+	background-color: $gray-4;
+	font-weight: $weight-b;
+	letter-spacing: 1px;
+	color: $white;
+	padding: 22px 0;
+	transition: all 0.3s;
+	@include media('above-desktop') {
+		&:hover {
+			color: $gray-2;
+		}
+	}
+	&.is-active {
+		.compare-block__icon {
+			transform: rotate(180deg);
+		}
+	}
+}
+
+.compare-block__bottom {
+	display: none;
+	padding: 16px 0;
+	background-color: $gray-4;
+	.column--4 .column__item {
+		@include media('below-tablet') {
+			lost-column: 1/2 2;
+		}
+	}
+}
+
+.compare-block__heading {
+	@extend %uppercase;
+	margin-right: 24px;
+}
+
+.compare-block__heading--amount {
+	margin-right: 24px;
+}
+
+.compare-block__item-outline {
+	@extend %position-relative;
+	@extend %background-cover;
+	@extend %text--center;
+	height: 160px;
+	padding: 16px 8px;
+	background-color: $white;
+	&.is-empty {
+		border: 1px dashed $gray-6;
+		background-color: $gray-3;
+	}
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.compare-block__item {
+	@extend %position-relative;
+	background-color: $white;
+}
+
+.compare-block__item--img {
+	width: 75px;
+	height: 75px;
+	margin: 0 auto 16px;
+}
+
+.compare-block__close {
+	@extend %position-absolute;
+	@extend %default-hover;
+	top: 8px;
+	right: 8px;
+	padding: 8px;
+	z-index: 20;
+}
+
+.compare-block__item--icon {
+	font-size: 12px;
+}
+
+.compare-block__item--heading {
+	@extend %full-width;
+	@extend %font-b-14;
+}
+
+.compare-block__footer {
+	@extend %text--center;
+	margin: 24px 0;
+}
+
+.compare-block__clear {
+	transition: color 0.3s;
+	color: $white;
+	padding: 16px 24px;
+	margin-right: 32px;
+	@include media('above-desktop') {
+		&:hover {
+			color: $blue-gray;
+		}
+	}
+}

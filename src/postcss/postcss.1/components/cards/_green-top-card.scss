@@ -1,0 +1,58 @@
+.green-top-cards {
+  margin-bottom: 40px;
+}
+
+.green-top-card {
+  border-top: 4px solid $main-color;
+  background-color: $white;
+
+  transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+
+  @include media('above-desktop') {
+		&:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 10px 16px 0 rgba($black, .12);
+		}
+	}
+}
+
+.green-top-card__link {
+	@extend %block;
+	@include text-hover($default-color);
+}
+
+.green-top-card__type {
+	@extend %font-b-14;
+	color: $blue;
+	margin-bottom: 16px;
+}
+
+.green-top-card__title {
+	@extend %font-m-18;
+	@extend %full-width;
+}
+
+.green-top-card__top {
+	padding: 24px;
+	@include media('above-tablet') {
+		min-height: 120px;
+	}
+	@include media('below-tablet') {
+		padding: 16px;
+	}
+}
+
+.green-top-card__btm {
+	@extend %flex-between;
+	@extend %full-width;
+	border-top: 1px solid $gray-1;
+	padding: 8px 24px;
+	@include media('below-tablet') {
+		padding: 8px 16px;
+	}
+}
+
+.green-top-card__note {
+  @extend %font-m-14;
+	color: $gray-4;
+}

@@ -1,0 +1,12 @@
+.basic-block {
+	@extend %lost-clear;
+	background-color: $white;
+	padding: 72px 0;
+	@include media('below-tablet') {
+		padding: 36px 16px;
+	}
+}
+
+.basic-block__container {
+	@extend %wrapper-s;
+}

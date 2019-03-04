@@ -1,0 +1,76 @@
+.module-carousel {
+	background-color: $blue;
+
+	margin: 0 -32px 32px;
+	@include media('above-small') {
+		padding: 32px 120px;
+	}
+	@include media('below-small') {
+		padding: 32px 70px;
+	}
+	@include media('below-tablet') {
+		padding: 32px 48px;
+	}
+	.slick-slide {
+    height: auto;
+  }
+}
+
+.module-carousel__img-wrap {
+	@extend %inline--top;
+	width: 90px;
+	@include media('above-tablet') {
+		margin-right: 32px;
+	}
+	@include media('below-tablet') {
+		margin: 0 auto 16px;
+		display: block;
+	}
+}
+
+.module-carousel__container {
+	@extend %inline--top;
+	color: $white;
+	@include media('above-tablet') {
+		width: calc(100% - 130px);
+	}
+	@include media('below-tablet') {
+		width: 100%;
+	}
+}
+
+.module-carousel__heading {
+	@extend %uppercase;
+	font-weight: $weight-b;
+	letter-spacing: 1px;
+	margin-bottom: 16px;
+}
+
+.module-carousel__paragraph {
+	@extend %font-m-14;
+}
+
+.module-carousel__btn {
+	@extend %position-absolute;
+	top: calc(50% - 17px);
+	padding: 8px;
+	&--prev {
+		left: 24px;
+		@include media('below-tablet') {
+			left: 16px;
+		}
+	}
+	&--next {
+		right: 24px;
+		@include media('below-tablet') {
+			right: 16px;
+		}
+	}
+}
+
+.module-carousel__icon {
+	@extend %block;
+	color: $white;
+	font-size: 18px;
+	transition: color 0.3s;
+}
