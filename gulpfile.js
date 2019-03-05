@@ -158,5 +158,5 @@ gulp.task('svg2png', () => {
 /*
  * main tasks
  */
-
+gulp.task('build', gulp.series('make:page', 'make:css', 'make:js', 'make:svg-sprite'))
 gulp.task('default', gulp.series('make:page', 'make:css', 'make:js', 'make:svg-sprite', 'browser-sync'))
