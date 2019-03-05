@@ -1,1 +1,0 @@
-const myTest = 5;

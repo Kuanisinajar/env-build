@@ -34,6 +34,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const changed = require("gulp-changed");
 const plumber = require("gulp-plumber");
 const concat = require("gulp-concat");
+const env = require('gulp-env');
 
 
 
@@ -59,7 +60,7 @@ const dest = {
   html: `${basePath.dest}html/`,
   js: `${basePath.dest}js/`,
   css: `${basePath.dest}css/`,
-  pages: `${basePath.dest}pages/`
+
 };
 const svgConfig = {
   mode: {
@@ -73,6 +74,10 @@ const svgConfig = {
 };
 const reload = browserSync.reload;
 
+env({
+	file: '.env.json'
+})
+
 
 /*
  * sub tasks
@@ -80,13 +85,13 @@ const reload = browserSync.reload;
 
 gulp.task("browser-sync", () => {
   browserSync.init({
-    port: 3071,
+    port: process.env.PORT,
     server: {
       baseDir: basePath.dest
     }
   });
 
-  gulp.watch(`${basePath.src}**/*`, gulp.series('make:html'));
+  gulp.watch(`${src.twig}**/*.twig`, gulp.series('make:page'));
   gulp.watch(`${src.js}**/*.js`, gulp.series('make:js')).on("change", reload);
   gulp.watch(`${src.css}**/*.scss`, gulp.series('make:css'));
 });
@@ -98,11 +103,17 @@ gulp.task("make:html", () => {
     .pipe(gulp.dest(basePath.dest))
     .pipe(browserSync.stream());
 });
-// gulp.task('make:page', () => {
-//     return gulp.src(`${src.twig}**/!(_)*.twig`)
-//         .pipe(twig()
-//         .pipe(gulp.dest('public/'));
-// });
+gulp.task('make:page', () => {
+    return gulp.src(`${src.twig}**/!(_)*.twig`)
+        .pipe(plumber())
+        .pipe(data(function(file) {
+          return JSON.parse(fs.readFileSync(file.path.replace(/twig/g, 'json')));
+        }))
+        .pipe(twig({
+          base: src.pages
+        }))
+        .pipe(gulp.dest(`${basePath.dest}`))
+});
 gulp.task("make:js", () => {
   return gulp.src(`${src.js}**/*.js`)
     .pipe(plumber())
@@ -137,10 +148,10 @@ gulp.task("make:svg-sprite", () => {
     .pipe(gulp.dest(dest.icons));
 });
 gulp.task('svg2png', () => {
-    return gulp.src('./specs/assets/**/*.svg')
+    return gulp.src('')
     .pipe(plumber())
     .pipe(svg2png())
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest(''));
 })
 
 
@@ -148,4 +159,4 @@ gulp.task('svg2png', () => {
  * main tasks
  */
 
-gulp.task('default', gulp.series('browser-sync', 'make:html', 'make:css', 'make:js', 'make:svg-sprite'))
+gulp.task('default', gulp.series('make:page', 'make:css', 'make:js', 'make:svg-sprite', 'browser-sync'))
