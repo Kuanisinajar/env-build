@@ -2,12 +2,16 @@
  * requirements
  */
 
+
 /** Basic * */
 const gulp = require("gulp");
 const browserSync = require("browser-sync");
 
-/** HTML * */
+/** Pages * */
 const htmlclean = require("gulp-htmlclean");
+const twig = require('gulp-twig');
+const data = require('gulp-data');
+const fs = require('fs');
 
 /** JS * */
 const uglify = require("gulp-uglify");
@@ -30,7 +34,7 @@ const sourcemaps = require("gulp-sourcemaps");
 const changed = require("gulp-changed");
 const plumber = require("gulp-plumber");
 const concat = require("gulp-concat");
-
+const env = require('gulp-env');
 
 
 
@@ -47,14 +51,16 @@ const src = {
   img: `${basePath.src}img/`,
   html: `${basePath.src}html/`,
   js: `${basePath.src}js/`,
-  css: `${basePath.src}postcss/`
+  css: `${basePath.src}postcss/`,
+  twig: `${basePath.src}twig/`
 };
 const dest = {
   icons: `${basePath.dest}icons/`,
   img: `${basePath.dest}img/`,
-  html: `${basePath.src}html/`,
+  html: `${basePath.dest}html/`,
   js: `${basePath.dest}js/`,
-  css: `${basePath.dest}css/`
+  css: `${basePath.dest}css/`,
+
 };
 const svgConfig = {
   mode: {
@@ -68,6 +74,9 @@ const svgConfig = {
 };
 const reload = browserSync.reload;
 
+env({
+	file: '.env.json'
+})
 
 
 /*
@@ -76,23 +85,34 @@ const reload = browserSync.reload;
 
 gulp.task("browser-sync", () => {
   browserSync.init({
-    port: 3071,
+    port: process.env.PORT,
     server: {
       baseDir: basePath.dest
     }
   });
 
-  gulp.watch(`${basePath.src}**/*`, gulp.series('make:html'));
+  gulp.watch(`${src.twig}**/*.twig`, gulp.series('make:page'));
   gulp.watch(`${src.js}**/*.js`, gulp.series('make:js')).on("change", reload);
   gulp.watch(`${src.css}**/*.scss`, gulp.series('make:css'));
 });
 gulp.task("make:html", () => {
   return gulp.src(`${basePath.src}**/*.html`)
-    .pipi(plumber())
+    .pipe(plumber())
     .pipe(changed(`${basePath.src}**/*.html`))
     .pipe(htmlclean())
     .pipe(gulp.dest(basePath.dest))
     .pipe(browserSync.stream());
+});
+gulp.task('make:page', () => {
+    return gulp.src(`${src.twig}**/!(_)*.twig`)
+        .pipe(plumber())
+        .pipe(data(function(file) {
+          return JSON.parse(fs.readFileSync(file.path.replace(/twig/g, 'json')));
+        }))
+        .pipe(twig({
+          base: src.pages
+        }))
+        .pipe(gulp.dest(`${basePath.dest}`))
 });
 gulp.task("make:js", () => {
   return gulp.src(`${src.js}**/*.js`)
@@ -111,7 +131,7 @@ gulp.task("make:js", () => {
 gulp.task("make:css", () => {
   let plugins = [autoprefixer({ browsers: ["last 2 versions"] })];
   return gulp.src(`${src.css}**/*.scss`)
-    .pipi(plumber())
+    .pipe(plumber())
     .pipe(changed(`${src.css}**/*.scss`))
     .pipe(sourcemaps.init())
     .pipe(sass().on("error", sass.logError))
@@ -123,21 +143,20 @@ gulp.task("make:css", () => {
 });
 gulp.task("make:svg-sprite", () => {
     return gulp.src(`${src.icons}**/*.svg`)
-    .pipi(plumber())
+    .pipe(plumber())
     .pipe(svgSprite(svgConfig))
     .pipe(gulp.dest(dest.icons));
 });
 gulp.task('svg2png', () => {
-    return gulp.src('./specs/assets/**/*.svg')
-    .pipi(plumber())
+    return gulp.src('')
+    .pipe(plumber())
     .pipe(svg2png())
-    .pipe(gulp.dest('./build'));
+    .pipe(gulp.dest(''));
 })
-
 
 
 /*
  * main tasks
  */
 
-gulp.task('default', gulp.series('browser-sync', 'make:html', 'make:css', 'make:js', 'make:svg-sprite'))
+gulp.task('default', gulp.series('make:page', 'make:css', 'make:js', 'make:svg-sprite', 'browser-sync'))
